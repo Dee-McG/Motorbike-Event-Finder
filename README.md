@@ -1,45 +1,160 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Motorbike Event Finder
 
-Welcome USER_NAME,
+The Motorbike Event Finder does exactly what it says on the tin. It's a place where users can create and view 
+Motorbike Events. The live Website can be found [here]().
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+## Table of Contents
+* [User Experience Design (UX)](#User-Experience-Design)
+    * [The Strategy Plane](#The-Strategy-Plane)
+        * [Site Goals](#Site-Goals)
+        * [User stories](#User-Stories)
+    * [The Scope Plane](#The-Scope-Plane)
+    * [The Structure Plane](#The-Structure-Plane)
+    * [The Skeleton Plane](#The-Skeleton-Plane)
+        * [Wireframes](#Wireframes)
+    * [The Surface Plane](#The-Surface-Plane)
+        * [Design](#Design)
+            * [Colour Scheme](#Colour-Scheme)
+            * [Typography](#Typography)
+            * [Imagery](#Imagery)
+    * [Differences to Design](#Differences-to-Design)
+- [Features](#Features)
+    * [Existing Features](#Existing-Features)
+    * [Future Features](#Features-Left-to-Implement)
+* [Technologies](#Technologies)
+* [Testing](#Testing)
+    * [Test Strategy](#Test-Strategy)
+    * [Test Results](#Test-Results)
+    * [Isses and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
+* [Deployment](#Deployment)
+    * [Project Creation](#Project-Creation)
+    * [GitHub Pages](#Deployment-To-Heroku)
+    * [Locally](Run-Locally)
+* [Credits](#Credits)
+  * [Content](#Content)
+  * [Acknowledgements](#Acknowledgements)
 
-## Gitpod Reminders
+****
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience Design
+### **The Strategy Plane**
 
-`python3 -m http.server`
+Although many events are advertised on social media, it can be difficult to keep track and keep record of them
+as there is no single 'one page fits all'. As a biker himself, my client has requested this website for not only
+his own personal use but for the local biking community to have easily accessible information in one place.
 
-A blue button should appear to click: *Make Public*,
+This website was created for client Gareth G as a 'One Stop Shop' for event loving bikers. The aim is to provide
+users with a simple website that allows them to quickly find or create Motorbike Events that can be shared with
+other motorcycle enthusiasts. All historical events should be recorded, although they do not have to  be displayed
+ as this data will not be needed until phase two enhancements of the website.
 
-Another blue button should appear to click: *Open Browser*.
+#### Site Goals
+* To increase the number of participants in Motorbike events by providing a simple, easy to use website that
+contains all the details of upcoming events.
+* Increase funds raised for charity by the Site owners personal motorcycle club through advertising their events
+on the website.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### User stories
+* As a user, I want the main purpose of the site to be clear so that I immediately know what the site is 
+intended for upon entering.
+* As a user, I want to easily navigate the site and locate content quickly on any device so that I can view 
+content from my mobile, tablet or desktop PC.
+* As a user, I want to be able to register to the website so that I can create and manage my own events.
+* As a user, I want to be able to search or filter events based on custom criteria so that I can find events
+ suited to me.
+* As a user, I want a way to contact the site owner so that I can have any questions I may have in 
+regards to the website answered.
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
+### **The Scope Plane**
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+**Features planned:**
+* Responsive design.
+* Website title and information on the site purpose.
+* Navigation Menu (Site Wide).
+* MongoDB databases to store event information and user logins.
+* Login functionality.
+* Logout functionality.
+* Motorcycle events displayed and searchable to all users.
+* Registered user event creation and management.
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### **The Structure Plane**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### **The Skeleton Plane**
+#### Wireframes
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### **The Surface Plane**
+### Design
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### Colour Scheme
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Typography
 
---------
 
-Happy coding!
+#### Imagery
+
+
+#### Differences to Design
+
+
+****
+## Features
+
+### Existing Features
+
+### Features Left to Implement
+
+****
+## Technologies
+
+****
+## Testing
+
+### Test Strategy
+#### **Summary**
+
+
+#### **High Level Test Cases**
+
+
+#### **Access Requirements**
+
+
+#### **Regression Testing**
+
+
+#### **Assumptions and Dependencies**
+
+
+#### **Out of Scope**
+
+
+### Test Results
+
+### Issues and Resolutions to issues found during testing
+
+
+****
+## Deployment
+
+### Project Creation
+
+
+### Deployment to Heroku
+
+
+### Run Locally
+
+
+****
+## Credits
+
+### Code
+
+### Acknowledgements
+
+****
