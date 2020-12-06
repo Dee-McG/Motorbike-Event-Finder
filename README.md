@@ -12,6 +12,7 @@ Motorbike Events. The live Website can be found [here]().
     * [The Structure Plane](#The-Structure-Plane)
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframes)
+        * [Database Design](#Database-Design)
     * [The Surface Plane](#The-Surface-Plane)
         * [Design](#Design)
             * [Colour Scheme](#Colour-Scheme)
@@ -57,13 +58,16 @@ on the website.
 #### User stories
 * As a user, I want the main purpose of the site to be clear so that I immediately know what the site is 
 intended for upon entering.
-* As a user, I want to easily navigate the site and locate content quickly on any device so that I can view 
-content from my mobile, tablet or desktop PC.
+* As a user, I want to easily navigate the site so that I can find content quickly with ease.
+* As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
+tablet or desktop.
 * As a user, I want to be able to register to the website so that I can create and manage my own events.
 * As a user, I want to be able to search or filter events based on custom criteria so that I can find events
  suited to me.
 * As a user, I want a way to contact the site owner so that I can have any questions I may have in 
 regards to the website answered.
+* As a user, I want to be able to return to the main site without having to use the browser buttons so 
+that I can easily return to the website if I navigate to a page that doesn't exist.
 
 
 ### **The Scope Plane**
@@ -80,10 +84,153 @@ regards to the website answered.
 
 
 ### **The Structure Plane**
+User Story:
+> As a user, I want the main purpose of the site to be clear so that I immediately know what the site is 
+intended for upon entering.
 
+Acceptance Criteria:
+* Site heading and Logo to be displayed on the main navigation bar on all pages.
+* Home Page to display information to the user on the purpose of the site.
+
+Implementation:
+
+A site logo and header with the website name will be displayed on the main navigation menu. This should be 
+displayed on all webpages.
+
+A detailed description of the site will be displayed on the Home page so that is evident of the websites
+purpose as soon as the user visits the site.
+
+User Story:
+> As a user, I want to easily navigate the site so that I can find content quickly with ease.
+
+Acceptance Criteria:
+* Navigation menu to be displayed on all pages.
+* All navigation links redirect to the correct pages.
+
+Implementation:
+
+A navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
+clicked. On mobile devices, the menu will be collapsable to make efficient use of space on smaller screen
+sizes. 
+
+The following main pages will be implemented:
+
+* Home page - index.html
+* Sign Up Page - register.html
+* Sign In Page - login.html
+* Logout Page - logout.html
+* Member Profile Page - profile.html
+    * Edit Event Page ( Edit button accessible from users profile ) - edit-event.html
+    * Delete Event Page ( Delete Button accessible from users profile ) - delete-event.html
+* Events Page - events.html
+* Create Event Page - create-event.html
+* Contact Us Page - contact.html
+
+User Story:
+> As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
+tablet or desktop.
+
+Acceptance Criteria:
+* Content should be responsive and display clearly on all devices with no horizontal scroll.
+
+Implementation:
+
+Materialize will be used for website layout with suitable column sizes and containers to ensure
+that all content is displayed clearly on all devices with no horizonal scroll. Images will be responsive and 
+scale to fit screen sizes with no stretch or distortion to ensure clear images are displayed to the user.
+
+User Story:
+> As a user, I want to be able to register to the website so that I can create and manage my own events.
+
+Acceptance Criteria:
+* Sign up - Login and Logout functionality to be added.
+* User must have the ability to create, update and delete their own events.
+* User must have a profile page displaying their basic details and events they have created.
+* Only the creator of the events should have the ability to update or delete the events.
+
+Implementation:
+
+A Sign Up page will be implemented that allows users to register for an account on the website. The username
+and password along with basic details for the users account will be stored in a MongoDB database collection 
+called users. In order to create or modify events, a user will have to register and login to the website. 
+Only the creator of the event will have the ability to update or delete the event, this is to prevent 
+unwanted modification or deletion of events by other users. A flash message will be shown to the user to 
+alert them whether the update or delete on their event was successful or failed.
+
+A Sign In page will be implemented to allow registered users the ability to login in to their account. 
+
+Once a user has successfully logged in, they will be redirected to their profile page. The users basic 
+details will be displayed on their profile, along with any events they have created. The user will be able 
+to update or delete their events from the profile page. This page will only be available to logged in users,
+this includes the visibility of the navigation menu item.
+
+A logout page will be created that will be displayed to users who are registered and logged in. When clicked 
+this will log the user out of the website and redirect them to the home page. The navigation item will only 
+be displayed to users who are currently logged in.
+
+A Create Event page will be implemented that will be acessible and visible on the navigation menu to logged 
+in users. The user will be able to create an event from this page. The event information will be stored in 
+a MongoDB database collection called events.
+
+User Story:
+> As a user, I want to be able to search or filter events based on custom criteria so that I can find events
+ suited to me.
+
+Acceptance Criteria:
+* Events must be displayed to all users regardless of being logged in.
+* Users should be able to search for events by Date, Location or Event Type.
+
+Implementation:
+
+An Events page will be implemented that is displayed to all users that is accessible to logged in or guests. 
+This page will display the next six motorbike events from today's date on materialize cards. In order to 
+make use of space, these events will be collapsable and can be expanded to view details on click.
+
+A search box will be displayed on screen which will allow users to search for events based on Date, Event 
+Type or Location. This will return a filtered, full list of future events for the current search criteria. 
+This will be implemented by using a database index that will be created on the MongoDB collection events.
+
+User Story:
+> As a user, I want a way to contact the site owner so that I can have any questions I may have in 
+regards to the website answered and receive feedback to alert on status of form submission.
+
+Acceptance Criteria:
+* Contact page should be added with a contact form. This form should only submit with valid data input.
+* Contact form should not submit with invalid data input.
+* User should be alerted of success/failure status of form submission.
+
+Implementation:
+
+A contact page will be added that contains a materialize form, this will allow users to contact the site 
+owner. The EmailJS API will be used in order to implement this feature and a flash message will be 
+displayed to alert the user if the contact form submitted successfully or unsuccessfully.
+
+Validation will be performed on the form to ensure valid data input. The form will not submit if any 
+field is blank.
+
+Form Fields:
+* Name - Type: Text, Max length: 50 chars, required.
+* Email - Type: Email, Max length: 50 chars, required.
+* Comments - Type: TextArea, Max length: 1500 characters, required.
+
+User Story:
+> As a user, I want to be able to return to the main site without having to use the browser buttons so 
+that I can easily return to the website if I navigate to a page that doesn't exist.
+
+Acceptance Criteria:
+* If a user redirects to the wrong page, an error will display that contains a link to go back to the main 
+website.
+
+Implementation:
+
+A custom 404 page will be created so that if a user attempts to nagiate to a page that it not found, an 
+error will be displayed. This page will contain a clickable anchor link to allow the user to redirect to 
+the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
+
+#### Database Design
 
 
 ### **The Surface Plane**
