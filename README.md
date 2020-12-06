@@ -76,9 +76,10 @@ that I can easily return to the website if I navigate to a page that doesn't exi
 * Responsive design.
 * Website title and information on the site purpose.
 * Navigation Menu (Site Wide).
-* MongoDB databases to store event information and user logins.
+* MongoDB databases to store event information and user login/profile information.
 * Login functionality.
 * Logout functionality.
+* Profile Page
 * Motorcycle events displayed and searchable to all users.
 * Registered user event creation and management.
 
@@ -289,13 +290,33 @@ the main website without needing to use the browser navigation buttons.
 ## Deployment
 
 ### Project Creation
+To create this project I used the CI Gitpod Full Template by navigating 
+[here](https://github.com/Code-Institute-Org/gitpod-full-template) and clicking the 'Use this template' button.
+
+I was then directed to the create new repository from template page and entered in my desired repo name, then 
+clicked Create repository from template button.
+
+Once created, I navigated to my new repository on GitHub and clicked the Gitpod button which built my workspace.
+
+The following commands were used for version control throughout the project:
+
+* git add *filename* - This command was used to add files to the staging area before committing.
+
+* git commit -m "commit message explaining the updates" - This command was used to to commit changes to the local repository.
+
+* git push - This command is used to push all committed changes to the GitHub repository.
 
 
 ### Deployment to Heroku
 
 
 ### Run Locally
-
+1. Navigate to the GitHub [Repository](https://github.com/Daisy-McG/Motorbike-Event-Finder).
+1. Click the Code drop down menu.
+1. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
+1. Open your developement editor of choice and open a terminal window in a directory of your choice.
+1. Use the 'git clone' command in terminal followed by the copied git URL.
+1. A clone of the project will be created locally on your machine.
 
 ****
 ## Credits
