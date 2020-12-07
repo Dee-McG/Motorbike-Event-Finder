@@ -171,7 +171,8 @@ be displayed to users who are currently logged in.
 
 A Create Event page will be implemented that will be acessible and visible on the navigation menu to logged 
 in users. The user will be able to create an event from this page. The event information will be stored in 
-a MongoDB database collection called events.
+a MongoDB database collection called events and the event categories will be stored in a MongoDB collection 
+called categories.
 
 User Story:
 > As a user, I want to be able to search or filter events based on custom criteria so that I can find events
@@ -232,7 +233,31 @@ the main website without needing to use the browser navigation buttons.
 #### Wireframes
 
 #### Database Design
+DB Object format example:
 
+**categories:**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally"<br>
+}
+
+**events:**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;location : "Wexford",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;date : "09 February, 2021",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description : "This Rally is hosted by Unicorn MCC.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;organiser : "Daisy McGirr"<br>
+}
+
+**users:**<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username: "Admin",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password : "12a6yt&jddn",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name : "Jane Doe",<br>
+}
 
 ### **The Surface Plane**
 ### Design
