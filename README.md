@@ -114,18 +114,16 @@ A navigation menu will be displayed on all webpages. This will redirect users to
 clicked. On mobile devices, the menu will be collapsable to make efficient use of space on smaller screen
 sizes. 
 
-The following main pages will be implemented:
+The following navigation items will be implemented:
 
-* Home page - index.html
-* Sign Up Page - register.html
-* Sign In Page - login.html
-* Logout Page - logout.html
-* Member Profile Page - profile.html
-    * Edit Event Page ( Edit button accessible from users profile ) - edit-event.html
-    * Delete Event Page ( Delete Button accessible from users profile ) - delete-event.html
-* Events Page - events.html
-* Create Event Page - create-event.html
-* Contact Us Page - contact.html
+* Home - index.html
+* Sign Up - register.html
+* Sign In - login.html
+* Profile - profile.html
+* Events - events.html
+* Create Event - create-event.html
+* Contact - contact.html
+* Sign Out - (redirects to home page)
 
 User Story:
 > As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
@@ -165,9 +163,8 @@ details will be displayed on their profile, along with any events they have crea
 to update or delete their events from the profile page. This page will only be available to logged in users,
 this includes the visibility of the navigation menu item.
 
-A logout page will be created that will be displayed to users who are registered and logged in. When clicked 
-this will log the user out of the website and redirect them to the home page. The navigation item will only 
-be displayed to users who are currently logged in.
+A Sign Out button will be displayed to users who are logged in. When clicked this will sign the user out of the 
+website and redirect them to the home page.
 
 A Create Event page will be implemented that will be acessible and visible on the navigation menu to logged 
 in users. The user will be able to create an event from this page. The event information will be stored in 
@@ -231,17 +228,26 @@ the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
+* [Home](static/images/wireframes/home.pdf)
+* [404](static/images/wireframes/404.pdf)
+* [Contact](static/images/wireframes/contact.pdf)
+* [Create Event](static/images/wireframes/create_event.pdf)
+* [Edit Event](static/images/wireframes/edit_event.pdf)
+* [Events](static/images/wireframes/events.pdf)
+* [Profile](static/images/wireframes/profile.pdf)
+* [Sign In](static/images/wireframes/signin.pdf)
+* [Sign Up](static/images/wireframes/signup.pdf)
 
 #### Database Design
-DB Object format example:
+MongoDB Object format examples:
 
-**categories:**<br>
+**Collection: categories**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally"<br>
 }
 
-**events:**<br>
+**Collection: events**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally",<br>
@@ -251,7 +257,7 @@ DB Object format example:
 &nbsp;&nbsp;&nbsp;&nbsp;organiser : "Daisy McGirr"<br>
 }
 
-**users:**<br>
+**Collection: users**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;username: "Admin",<br>
