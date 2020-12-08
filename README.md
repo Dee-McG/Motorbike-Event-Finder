@@ -77,12 +77,14 @@ that I can easily return to the website if I navigate to a page that doesn't exi
 * Website title and information on the site purpose.
 * Navigation Menu (Site Wide).
 * MongoDB databases to store event information and user login/profile information.
+* CRUD Functionality
 * Login functionality.
 * Logout functionality.
 * Profile Page
 * Motorcycle events displayed and searchable to all users.
 * Registered user event creation and management.
 
+![Importance and Difficuly](static/images/readme_images/importance.jpg)
 
 ### **The Structure Plane**
 User Story:
