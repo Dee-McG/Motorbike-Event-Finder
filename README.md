@@ -84,7 +84,7 @@ that I can easily return to the website if I navigate to a page that doesn't exi
 * Motorcycle events displayed and searchable to all users.
 * Registered user event creation and management.
 
-![Importance and Difficuly](static/images/readme_images/importance.jpg)
+![Importance and Difficulty](readme_images/importance.jpg)
 
 ### **The Structure Plane**
 User Story:
@@ -230,15 +230,15 @@ the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
-* [Home](static/images/wireframes/home.pdf)
-* [404](static/images/wireframes/404.pdf)
-* [Contact](static/images/wireframes/contact.pdf)
-* [Create Event](static/images/wireframes/create_event.pdf)
-* [Edit Event](static/images/wireframes/edit_event.pdf)
-* [Events](static/images/wireframes/events.pdf)
-* [Profile](static/images/wireframes/profile.pdf)
-* [Sign In](static/images/wireframes/signin.pdf)
-* [Sign Up](static/images/wireframes/signup.pdf)
+* [Home](readme_images/wireframes/home.pdf)
+* [404](readme_images/wireframes/404.pdf)
+* [Contact](readme_images/wireframes/contact.pdf)
+* [Create Event](readme_images/wireframes/create_event.pdf)
+* [Edit Event](readme_images/wireframes/edit_event.pdf)
+* [Events](readme_images/wireframes/events.pdf)
+* [Profile](readme_images/wireframes/profile.pdf)
+* [Sign In](readme_images/wireframes/signin.pdf)
+* [Sign Up](readme_images/wireframes/signup.pdf)
 
 #### Database Design
 MongoDB Object format examples:
