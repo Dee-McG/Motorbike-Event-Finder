@@ -1,7 +1,7 @@
 # Motorbike Event Finder
 
 The Motorbike Event Finder does exactly what it says on the tin. It's a place where users can create and view 
-Motorbike Events. The live Website can be found [here]().
+Motorbike Events. The live Website can be found [here](https://motorbike-event-finder.herokuapp.com/).
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -113,8 +113,8 @@ Acceptance Criteria:
 Implementation:
 
 A navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
-clicked. On mobile devices, the menu will be collapsable to make efficient use of space on smaller screen
-sizes. 
+clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen 
+space. When clicked, the menu will expand out from the right side of the screen displaying all nav items.
 
 The following navigation items will be implemented:
 
