@@ -1,7 +1,7 @@
 # Motorbike Event Finder
 
 The Motorbike Event Finder does exactly what it says on the tin. It's a place where users can create and view 
-Motorbike Events. The live Website can be found [here]().
+Motorbike Events. The live Website can be found [here](https://motorbike-event-finder.herokuapp.com/).
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -77,12 +77,14 @@ that I can easily return to the website if I navigate to a page that doesn't exi
 * Website title and information on the site purpose.
 * Navigation Menu (Site Wide).
 * MongoDB databases to store event information and user login/profile information.
+* CRUD Functionality
 * Login functionality.
 * Logout functionality.
 * Profile Page
 * Motorcycle events displayed and searchable to all users.
 * Registered user event creation and management.
 
+![Importance and Difficulty](readme_images/importance.jpg)
 
 ### **The Structure Plane**
 User Story:
@@ -90,15 +92,16 @@ User Story:
 intended for upon entering.
 
 Acceptance Criteria:
-* Site heading and Logo to be displayed on the main navigation bar on all pages.
-* Home Page to display information to the user on the purpose of the site.
+* Site Logo to be displayed on the main navigation bar on all pages.
+* Home Page to display Website Title and information to the user on the purpose of the site.
 
 Implementation:
 
-A site logo and header with the website name will be displayed on the main navigation menu. This should be 
+A site logo will be displayed on the main navigation menu. This should be 
 displayed on all webpages.
 
-A detailed description of the site will be displayed on the Home page so that is evident of the websites
+The Website title will be displated as a h1 element on the home page and a detailed description of the 
+site will be displayed on the Home page so that is evident of the websites
 purpose as soon as the user visits the site.
 
 User Story:
@@ -111,21 +114,19 @@ Acceptance Criteria:
 Implementation:
 
 A navigation menu will be displayed on all webpages. This will redirect users to the approriate page when 
-clicked. On mobile devices, the menu will be collapsable to make efficient use of space on smaller screen
-sizes. 
+clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen 
+space. When clicked, the menu will expand out from the right side of the screen displaying all nav items.
 
-The following main pages will be implemented:
+The following navigation items will be implemented:
 
-* Home page - index.html
-* Sign Up Page - register.html
-* Sign In Page - login.html
-* Logout Page - logout.html
-* Member Profile Page - profile.html
-    * Edit Event Page ( Edit button accessible from users profile ) - edit-event.html
-    * Delete Event Page ( Delete Button accessible from users profile ) - delete-event.html
-* Events Page - events.html
-* Create Event Page - create-event.html
-* Contact Us Page - contact.html
+* Home - index.html
+* Sign Up - register.html
+* Sign In - login.html
+* Profile - profile.html
+* Events - events.html
+* Create Event - create-event.html
+* Contact - contact.html
+* Sign Out - (redirects to home page)
 
 User Story:
 > As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, 
@@ -165,9 +166,8 @@ details will be displayed on their profile, along with any events they have crea
 to update or delete their events from the profile page. This page will only be available to logged in users,
 this includes the visibility of the navigation menu item.
 
-A logout page will be created that will be displayed to users who are registered and logged in. When clicked 
-this will log the user out of the website and redirect them to the home page. The navigation item will only 
-be displayed to users who are currently logged in.
+A Sign Out button will be displayed to users who are logged in. When clicked this will sign the user out of the 
+website and redirect them to the home page.
 
 A Create Event page will be implemented that will be acessible and visible on the navigation menu to logged 
 in users. The user will be able to create an event from this page. The event information will be stored in 
@@ -231,17 +231,26 @@ the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
+* [Home](readme_images/wireframes/home.pdf)
+* [404](readme_images/wireframes/404.pdf)
+* [Contact](readme_images/wireframes/contact.pdf)
+* [Create Event](readme_images/wireframes/create_event.pdf)
+* [Edit Event](readme_images/wireframes/edit_event.pdf)
+* [Events](readme_images/wireframes/events.pdf)
+* [Profile](readme_images/wireframes/profile.pdf)
+* [Sign In](readme_images/wireframes/signin.pdf)
+* [Sign Up](readme_images/wireframes/signup.pdf)
 
 #### Database Design
-DB Object format example:
+MongoDB Object format examples:
 
-**categories:**<br>
+**Collection: categories**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally"<br>
 }
 
-**events:**<br>
+**Collection: events**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;event_type: "Rally",<br>
@@ -251,7 +260,7 @@ DB Object format example:
 &nbsp;&nbsp;&nbsp;&nbsp;organiser : "Daisy McGirr"<br>
 }
 
-**users:**<br>
+**Collection: users**<br>
 {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_id: unique-value,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;username: "Admin",<br>
@@ -263,13 +272,16 @@ DB Object format example:
 ### Design
 
 #### Colour Scheme
-
+The main website colours will be green for the header and footer background and black for the Websites text.
 
 #### Typography
-
+Fonts TBC
 
 #### Imagery
+A background image will be used on all pages displaying a map of Ireland, this image was 
+taken from [mapswire](https://mapswire.com/countries/ireland/). 
 
+The website logo was created using online software from the website [free logo design](https://freelogodesign.org).
 
 #### Differences to Design
 
