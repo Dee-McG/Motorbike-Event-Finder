@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 * {
     color: black;
 }
@@ -11,11 +12,12 @@ nav li a {
 
 nav .title {
     font-size: 5vw;
+    font-family: 'Lobster', san-serif;
 }
 
 .menu-icon i {
     margin-top: 50%;
-    font-size: 10vh;
+    font-size: 8vh;
     min-height: 100%;
 }
 
@@ -27,4 +29,26 @@ nav {
 nav .brand-logo {
     min-height: 150px;
     max-height: 100%;
+}
+
+/* Main */
+main {
+    background-image: url("../images/background-img.jpg");
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    border: 1px solid black;
+}
+
+a:link {
+  color: black;
 }
