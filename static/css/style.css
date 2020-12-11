@@ -1,0 +1,78 @@
+* {
+    color: black;
+    font-size: 10px;
+}
+
+/* Generic */
+p {
+    font-size: 1rem;
+}
+
+a {
+    font-size: 1rem;  
+}
+
+/*  Navigation Styling  */
+nav li a {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5vw;
+}
+
+.menu-icon i {
+    margin-top: 40%;
+    font-size: 4vh;
+    min-height: 100%;
+}
+
+nav {
+    border: 1px solid black;
+    min-height: 150px;
+}
+
+nav .brand-logo {
+    min-height: 150px;
+    height: 100%;
+}
+
+/* Main */
+main {
+    background-image: url("../images/bg-small.jpg");
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-size: cover;
+}
+
+/* Footer */
+footer {
+    border: 1px solid black;
+}
+
+a:link {
+  color: black;
+}
+
+/* Media Queries */
+
+/* Media Query for background image on large screens */
+@media only screen and (min-width: 800px) {
+  main {
+    background-image: url("../images/background-img.jpg");
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-size: cover;
+    }
+}
+
+/* Media Query to make menu icon bigger on larger screen sizes */
+@media only screen and (min-width: 396px) {
+    .menu-icon i {
+        margin-top: 40%;
+        font-size: 8vh;
+        min-height: 100%;
+    }
+}
