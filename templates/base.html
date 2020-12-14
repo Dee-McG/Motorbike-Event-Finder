@@ -55,8 +55,9 @@
             <li><a href="#">Sign Out</a></li>
         </ul>
         <!-- Mobile side Nav End -->
-
-        <section>
+        
+        <!-- Main Content -->
+        <main>
             <!-- Flash messages -->
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -67,13 +68,9 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-        </section>
-        
-        <!-- Main Content -->
-        <main>
-        {% block content %}
             
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
         </main>
 
         <!-- Start Footer -->

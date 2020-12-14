@@ -18,29 +18,25 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-"""
-Renders home page template when going to the main website link
-"""
-
-
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    Renders home page template when going to the main website link
+    """
     return render_template("index.html")
-
-
-"""
-Sign up - This function allows the user to register on the Sign Up page.
-If the username already exists in the DB a flash message will
-    display to alert the user.
-If the username does not exist and registration was successful,
-    the user will be logged in and a flash message displayed to verify it
-    was successful.
-"""
 
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    """
+    Sign up - This function allows the user to register on the Sign Up page.
+    If the username already exists in the DB a flash message will
+    display to alert the user.
+    If the username does not exist and registration was successful,
+    the user will be logged in and a flash message displayed to verify it
+    was successful.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
