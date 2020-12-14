@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Import font-awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous" />
+        <!-- Compiled and minified CSS for Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+            type="text/css">
+        <!-- Import custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        {% block styles %}
+        {% endblock %}
+        <title>Motorbike Event Finder</title>
+    </head>
+    <body>
+        <!-- Nav Start -->
+        <nav class="nav-extended green darken-1">
+            <div class="nav-wrapper">
+
+                <a><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo center" id="logo"></a>
+
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon"><i class="fas fa-bars"></i></a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Nav End -->
+
+        <!-- Mobile side Nav Start -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Create Event</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+        <!-- Mobile side Nav End -->
+        
+        <!-- Main Content -->
+        <main>
+        {% block content %}
+            
+        {% endblock %}
+        </main>
+
+        <!-- Start Footer -->
+        <footer class="green darken-1">
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col s12 m4 center">
+                    <h5>Contact Information</h5>
+                    <p>
+                        The Motorbike Event Finder<br>
+                        <a href="mailto:admin@mbevent.ie">Email: admin@mbevent.ie</a><br>
+                        <a href="tel:555-555-5555">Tel: 555-555-5555</a>
+                    </p>
+                </div>
+                <!-- Copyright info -->
+                <div class="col s12 m4 center">
+                    <p>
+                        Copyright &copy; 2020 by Daisy McGirr
+                    </p>
+                </div>
+                <!-- Site Links -->
+                <div class="col s12 m4 center">
+                    <p>
+                        Site links - TBD
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Load jQuery and Materialize JS files -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Import custom JS -->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
