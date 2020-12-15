@@ -13,6 +13,11 @@
             type="text/css">
         <!-- Import custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <!-- Import favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+
         {% block styles %}
         {% endblock %}
         <title>Motorbike Event Finder</title>
@@ -27,7 +32,7 @@
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="#">Events</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
                 </ul>
 
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon"><i class="fas fa-bars"></i></a>
@@ -50,7 +55,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="#">Events</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if session.user %}
                 <li><a href="#">Create Event</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>

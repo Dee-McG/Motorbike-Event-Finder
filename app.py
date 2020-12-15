@@ -118,6 +118,14 @@ def signout():
     return redirect(url_for("signin"))
 
 
+@app.route("/contact")
+def contact():
+    """
+    Renders contact template
+    """
+    return render_template("contact.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
