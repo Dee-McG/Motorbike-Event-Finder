@@ -17,11 +17,11 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Bevan', sans-serif;
-    color: #43a047;
 }
 
 .main-heading {
     font-size: 6vw;
+    color: #43a047;
 }
 
 /*  Navigation Styling  */
@@ -48,7 +48,7 @@ nav .brand-logo {
     height: 100%;
 }
 
-/* Main */
+/* Base Template */
 main {
     background-image: url("../images/bg-small.jpg");
     width: 100%;
@@ -60,6 +60,14 @@ main {
 
 #main-cont {
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+.alert-error {
+    color: rgb(150, 33, 33);
+}
+
+.alert-message {
+    color: green;
 }
 
 /* Contact Page */
