@@ -125,12 +125,29 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/create-event")
+@app.route("/create-event", methods=["GET", "POST"])
 def create_event():
     """
-    Renders contact template
+    Gets form values from create event and stores into event object
+    when form submits.
+    Inserts record into events collection and shows flash message of success.
+    Returns categories to create_events page to populate drop downs on form.
     """
-    return render_template("create-event.html")
+    if request.method == "POST":
+        event = {
+            "event_type": request.form.get("event_type"),
+            "location": request.form.get("location"),
+            "date": request.form.get("date"),
+            "description": request.form.get("description"),
+            "organiser": request.form.get("organiser"),
+            "created_by": session["user"]
+        }
+        mongo.db.events.insert_one(event)
+        flash("Event Successfully Created", 'message')
+        return redirect(url_for("create_event"))
+
+    categories = mongo.db.categories.find().sort("event_type", 1)
+    return render_template("create-event.html", categories=categories)
 
 
 if __name__ == "__main__":
