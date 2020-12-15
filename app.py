@@ -42,7 +42,7 @@ def signup():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("This user name already exists.")
+            flash("This user name already exists.", 'error')
             return redirect(url_for("signup"))
 
         newUser = {
@@ -53,7 +53,7 @@ def signup():
         mongo.db.users.insert_one(newUser)
 
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", 'message')
         render_template("profile.html")
 
     return render_template("signup.html")
@@ -77,16 +77,15 @@ def signin():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
+                flash(f"Welcome, {session['user']}", 'message')
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", 'error')
                 return redirect(url_for("signin"))
 
         else:
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", 'error')
             return redirect(url_for("signin"))
 
     return render_template("signin.html")
@@ -113,7 +112,7 @@ def signout():
     Removes logged in user from session cookie and
     returns them to the signin page.
     """
-    flash("You have been signed out")
+    flash("You have been signed out", 'message')
     session.pop("user")
     return redirect(url_for("signin"))
 
@@ -124,6 +123,31 @@ def contact():
     Renders contact template
     """
     return render_template("contact.html")
+
+
+@app.route("/create-event", methods=["GET", "POST"])
+def create_event():
+    """
+    Gets form values from create event and stores into event object
+    when form submits.
+    Inserts record into events collection and shows flash message of success.
+    Returns categories to create_events page to populate drop downs on form.
+    """
+    if request.method == "POST":
+        event = {
+            "event_type": request.form.get("event_type"),
+            "location": request.form.get("location"),
+            "date": request.form.get("date"),
+            "description": request.form.get("description"),
+            "organiser": request.form.get("organiser"),
+            "created_by": session["user"]
+        }
+        mongo.db.events.insert_one(event)
+        flash("Event Successfully Created", 'message')
+        return redirect(url_for("create_event"))
+
+    categories = mongo.db.categories.find().sort("event_type", 1)
+    return render_template("create-event.html", categories=categories)
 
 
 if __name__ == "__main__":

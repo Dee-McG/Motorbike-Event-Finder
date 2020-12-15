@@ -5,11 +5,11 @@ function sendMail(contactForm) {
         "project_request": contactForm.comments.value
     })
     .then(
-        function(response) {
+        function() {
             document.getElementById("contact-form").reset();
             $('.email-response').html("Thank you for your email, someone will be in touch shortly.");
         },
-        function(error) {
+        function() {
             document.getElementById("contact-form").reset();
             $('.email-response').html("There was an error with our email service. Please try again in a few minutes.");
         }

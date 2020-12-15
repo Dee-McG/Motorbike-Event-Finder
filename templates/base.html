@@ -39,7 +39,7 @@
 
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
-                        <li><a href="#">Create Event</a></li>
+                        <li><a href="{{ url_for('create_event') }}">Create Event</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
                     {% else %}
@@ -57,7 +57,7 @@
             <li><a href="#">Events</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if session.user %}
-                <li><a href="#">Create Event</a></li>
+                <li><a href="{{ url_for('create_event') }}">Create Event</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
             {% else %}
@@ -70,11 +70,11 @@
         <!-- Main Content -->
         <main>
             <!-- Flash messages -->
-            {% with messages = get_flashed_messages() %}
+            {% with messages = get_flashed_messages(with_categories=True) %}
                 {% if messages %}
-                    {% for message in messages %}
-                        <div class="row flashes">
-                            <h4 class="light-green-text center-align">{{ message }}</h4>
+                    {% for category, message in messages %}
+                        <div class="row flashes center-align">
+                            <h4 class="alert-{{ category }}">{{ message }}</h4>
                         </div>
                     {% endfor %}
                 {% endif %}
