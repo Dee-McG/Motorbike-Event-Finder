@@ -3,6 +3,8 @@ $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     // Select options
     $('select').formSelect();
+    // Collapsible events
+    $('.collapsible').collapsible();
     // Date picker 
     $('.datepicker').datepicker({
         format: "dd mmmm, yyyy",
