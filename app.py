@@ -56,7 +56,8 @@ def signup():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!", 'message')
-        render_template("profile.html")
+        return redirect(url_for(
+                    "profile", username=session["user"]))
 
     return render_template("signup.html")
 
