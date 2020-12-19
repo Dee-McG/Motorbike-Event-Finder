@@ -27,11 +27,11 @@
         <nav class="nav-extended green darken-1">
             <div class="nav-wrapper">
 
-                <a><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo center" id="logo" alt="Site Logo"></a>
+                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo center" id="logo" alt="Site Logo"></a>
 
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="#">Events</a></li>
+                    <li><a href="{{ url_for('get_events') }}">Events</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact</a></li>
                 </ul>
 
@@ -54,7 +54,7 @@
         <!-- Mobile side Nav Start -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="#">Events</a></li>
+            <li><a href="{{ url_for('get_events') }}">Events</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('create_event') }}">Create Event</a></li>

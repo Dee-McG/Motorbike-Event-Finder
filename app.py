@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
+from datetime import date
 
 if os.path.exists("env.py"):
     import env
@@ -126,6 +127,15 @@ def contact():
     Renders contact template
     """
     return render_template("contact.html")
+
+
+@app.route("/events")
+def get_events():
+    """
+    Returns a list of events, sorted by Date with a limit of 6 events.
+    """
+    events = list(mongo.db.events.find().sort("date").limit(6))
+    return render_template("events.html", events=events)
 
 
 @app.route("/create-event", methods=["GET", "POST"])
