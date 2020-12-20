@@ -4,8 +4,39 @@
     <div class="row">
         <div class="col s12 l8 offset-l2" id="main-cont">
             <h1 class="main-heading">Upcoming Events</h1>
+
+            <!-- Search Form -->
+            <div class="row card-panel grey lighten-5">
+                <form action="{{ url_for('search') }}" method="post" class="col s12">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <div class="row valign-wrapper center-align">
+                        <i class="fas fa-search prefix green-text text-darken-2"></i>
+                        <!-- Event type drop down -->
+                        <div class="input-field col s12 m8">
+                            <select id="event_type" name="event_type" type="text" class="validate">
+                                <option value="" disabled selected>Choose Category</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.event_type }}">{{ category.event_type }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Event Type</label>
+                        </div>
+                        <!-- Text search box -->
+                        <div class="input-field col s12 m4">
+                            <input type="text" name="query" id="query" class="validate">
+                            <label for="query">Search by Location or Date</label>
+                        </div>
+                        <!-- Search Button -->
+                        <div class="col s12 m4">
+                            <button type="submit" class="green darken-1 black-text btn text-shadow">
+                                <i class="fas fa-search left"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             
-            {% if events %}
+            {% if events|length > 0 %}
                 <ul class="collapsible">
                     {% for event in events %}
                     <li>

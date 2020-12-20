@@ -6,7 +6,6 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
-from datetime import date
 
 if os.path.exists("env.py"):
     import env
@@ -136,6 +135,24 @@ def get_events():
     """
     events = list(mongo.db.events.find().sort("date").limit(6))
     return render_template("events.html", events=events)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    Returns search results from user input query or drop down
+    selection from events page
+    """
+    query = request.form.get("query")
+    event_type = request.form.get("event_type")
+    events = list()
+    if query:
+        events = list(mongo.db.events.find({"$text": {"$search": query}}))
+    elif event_type:
+        events = list(mongo.db.events.find({"$text": {"$search": event_type}}))
+
+    categories = mongo.db.categories.find().sort("event_type", 1)
+    return render_template("events.html", events=events, categories=categories)
 
 
 @app.route("/create-event", methods=["GET", "POST"])
