@@ -79,6 +79,10 @@ main {
     font-size: 1rem;
 }
 
+#search-btn {
+    margin-top: 20px;
+}
+
 /* Contact Page */
 .email-response {
     font-size: 1vw;
@@ -93,6 +97,18 @@ footer {
 
 a:link {
   color: black;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+}
+
+.footer-content {
+    font-size: 1rem;
+}
+
+.footer-copyright {
+    font-size: 10px;
 }
 
 /* Media Queries */
