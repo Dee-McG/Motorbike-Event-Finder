@@ -135,9 +135,11 @@ def contact():
 def get_events():
     """
     Returns a list of events, sorted by Date with a limit of 6 events.
+    Passes categories list in to poplate event type drop down.
     """
     events = list(mongo.db.events.find().sort("date").limit(6))
-    return render_template("events.html", events=events)
+    categories = mongo.db.categories.find().sort("event_type", 1)
+    return render_template("events.html", events=events, categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
