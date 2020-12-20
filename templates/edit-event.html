@@ -3,10 +3,10 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <form class="col s12 l8 offset-l2" method="POST" action="{{ url_for('create_event') }}">
+            <form class="col s12 l8 offset-l2" method="POST" action="{{ url_for('edit_event', event_id=event._id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="card-panel">
-                    <h1 class="main-heading">Create Event</h1>
+                    <h1 class="main-heading">Edit Event</h1>
                     <!-- Event Type Populated from categories collection-->
                     <div class="row">
                         <div class="input-field col s8">
@@ -54,9 +54,15 @@
                     </div>
                     <!-- Create Event Submit Button -->
                     <div class="row">
-                        <button type="submit" class="col s12 btn-large light-green darken-2 text-shadow">
-                            Create Event <i class="fas fa-sign-in-alt"></i>
-                        </button>
+                        <div class="col">
+                            <!-- cancel button -->
+                            <a href="{{ url_for('get_events') }}" class="btn-large red text-shadow">
+                                Cancel <i class="fas fa-times-circle right"></i>
+                            </a>
+                            <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                                Edit Task <i class="fas fa-edit right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

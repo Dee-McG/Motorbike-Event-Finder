@@ -2,27 +2,25 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s12 m8 offset-m2" id="main-cont">
+        <div class="col s12 l8 offset-l2" id="main-cont">
             <h1 class="main-heading">Profile</h1>
 
-            <p>Your Events</p>
+            <p class="event-sub">Manage Events</p>
 
             {% if events|length > 0 %}
+                <!-- Event Information -->
                 <ul class="collapsible">
                     {% for event in events %}
                     {% if session.user|lower == event.created_by|lower %}
                     <li>
-                        <div class="collapsible-header white-text green darken-1 text-shadow">
-                            <div col s3>
-                                <a href="{{ url_for('delete_event', event_id=event._id) }}" class="btn-small green accent-4">Delete</a>
-                                <a href="{{ url_for('edit_event', event_id=event._id) }}" class="btn-small light-blue lighten-1">Edit</a>
-                            </div>
+                        <div class="collapsible-header black-text green darken-1 text-shadow">
                             <div class="col s12">
                                 <p class="event-title">{{ event.event_type }}<br> 
                                     {{ event.date }}
                                 </p>
                             </div>
                         </div>
+                        <!-- Expanded Event Information -->
                         <div class="collapsible-body">
                             <p class="event-header">Description:<br> 
                                 <span class="event-sub">{{ event.description }}</span>
@@ -33,13 +31,14 @@
                             <p class="event-header">Organiser:<br>
                                 <span class="event-sub">{{ event.organiser }}</span>
                             </p>
+                            <!-- Edit / Delete Buttons -->
+                            <a href="{{ url_for('delete_event', event_id=event._id) }}" class="btn-small red accent-4">Delete</a>
+                            <a href="{{ url_for('edit_event', event_id=event._id) }}" class="btn-small light-green lighten-1">Edit</a>
                         </div>
                     </li>
                     {% endif %}
                     {% endfor %}
                 </ul>
-            {% else %}
-            <h3 class="red-text text-darken-4 center-align">No Events Found</h3>
             {% endif %}
         </div>
     </div>

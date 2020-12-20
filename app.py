@@ -98,13 +98,14 @@ def signin():
 def profile(username):
     """
     Takes the session user's username from 'users' database
-    and returns them to their profile page.
+    and returns them to their profile page. Returns events
+    created by the user.
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        events = list(mongo.db.events.find().sort("date").limit(6))
+        events = list(mongo.db.events.find().sort("date"))
         return render_template("profile.html",
                                username=username, events=events)
 
@@ -182,10 +183,35 @@ def create_event():
     return render_template("create-event.html", categories=categories)
 
 
+@app.route("/edit-event/<event_id>", methods=["GET", "POST"])
+def edit_event(event_id):
+    """
+    Allows user to edit an event. If successful, flash message is displayed
+    to alert user.
+    """
+    if request.method == "POST":
+        submit = {
+            "event_type": request.form.get("event_type"),
+            "location": request.form.get("location"),
+            "date": request.form.get("date"),
+            "description": request.form.get("description"),
+            "organiser": request.form.get("organiser"),
+            "created_by": session["user"]
+        }
+        mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
+        flash("Event Successfully Updated", 'message')
+
+    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit-event.html",
+                           event=event, categories=categories)
+
+
 @app.route("/delete_event/<event_id>")
 def delete_event(event_id):
     """
-    Allows user to delete  an event
+    Allows user to delete  an event. Returns user back to
+    their profile page.
     """
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Event Successfully Deleted", 'message')
