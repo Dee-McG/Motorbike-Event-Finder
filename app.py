@@ -104,7 +104,9 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        events = list(mongo.db.events.find().sort("date").limit(6))
+        return render_template("profile.html",
+                               username=username, events=events)
 
     return redirect(url_for("signin"))
 
@@ -141,7 +143,7 @@ def get_events():
 def search():
     """
     Returns search results from user input query or drop down
-    selection from events page
+    selection from events page. Renders template for events.html.
     """
     query = request.form.get("query")
     event_type = request.form.get("event_type")
@@ -178,6 +180,19 @@ def create_event():
 
     categories = mongo.db.categories.find().sort("event_type", 1)
     return render_template("create-event.html", categories=categories)
+
+
+@app.route("/delete_event/<event_id>")
+def delete_event(event_id):
+    """
+    Allows user to delete  an event
+    """
+    mongo.db.events.remove({"_id": ObjectId(event_id)})
+    flash("Event Successfully Deleted", 'message')
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return redirect(url_for("profile", username=username))
 
 
 if __name__ == "__main__":
