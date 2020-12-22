@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
+from datetime import datetime, date
 
 if os.path.exists("env.py"):
     import env
@@ -134,11 +135,29 @@ def contact():
 @app.route("/events")
 def get_events():
     """
-    Returns a list of events, sorted by Date with a limit of 6 events.
+    Reads all entries in the collection, iterates through them and converts
+    the events date into a date object. If the events date is greater than
+    todays date, it's added to the events list.
+    events is then sorted on date and the first 6 items saved back to events.
+    Dates are then converted back to strings and events list returned.
     Passes categories list in to poplate event type drop down.
     """
-    events = list(mongo.db.events.find().sort("date").limit(6))
+    all_events = list(mongo.db.events.find())
     categories = mongo.db.categories.find().sort("event_type", 1)
+    todays_date = date.today()
+    events = list()
+
+    for event in all_events:
+        event_date = datetime.strptime(event.get('date'), '%d %B %Y').date()
+        if event_date > todays_date:
+            event['date'] = event_date
+            events.append(event)
+    events.sort(key=lambda x: x['date'])
+
+    events = events[:6]
+
+    for event in events:
+        event['date'] = datetime.strftime(event.get('date'), '%d %B %Y')
     return render_template("events.html", events=events, categories=categories)
 
 
@@ -146,7 +165,10 @@ def get_events():
 def search():
     """
     Returns search results from user input query or drop down
-    selection from events page. Renders template for events.html.
+    selection from events page.
+    Iterates through events returned and converts dates to date objects
+    in order to sort by date ascending. Converts back to strings after.
+    Renders template for events.html.
     """
     query = request.form.get("query")
     event_type = request.form.get("event_type")
@@ -155,6 +177,14 @@ def search():
         events = list(mongo.db.events.find({"$text": {"$search": query}}))
     elif event_type:
         events = list(mongo.db.events.find({"$text": {"$search": event_type}}))
+
+    for event in events:
+        event_date = datetime.strptime(event.get('date'), '%d %B %Y').date()
+        event['date'] = event_date
+    events.sort(key=lambda x: x['date'])
+
+    for event in events:
+        event['date'] = datetime.strftime(event.get('date'), '%d %B %Y')
 
     categories = mongo.db.categories.find().sort("event_type", 1)
     return render_template("events.html", events=events, categories=categories)
