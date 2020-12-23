@@ -13,7 +13,9 @@ p {
 }
 
 a {
-    font-size: 1rem;  
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,9 +23,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-heading {
-    font-size: 6vw;
+    font-size: 3rem;
     color: #831717;
-    text-shadow: 4px 3px 2px rgba(150, 150, 150, 1);
+    text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
+    text-align: center;
 }
 
 .button-bg-color {
@@ -75,6 +78,21 @@ main {
 
 .alert-message {
     color: green;
+}
+
+/* Home Page */
+
+.landing-sub {
+    color: #831717;
+    font-weight: bolder;
+}
+
+.anchor-links {
+    color: #ff0606;
+}
+
+.small-text {
+    font-size: 1rem;
 }
 
 /* Events Page */
@@ -143,9 +161,9 @@ a:link {
 }
 
 /* Media Query to make heading text bigger on larger screen sizes */
-@media only screen and (min-width: 839px) {
+@media only screen and (min-width: 655px) {
     .main-heading {
-        font-size: 8vh;
+        font-size: 4rem;
     }
 }
 

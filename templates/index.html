@@ -2,32 +2,41 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s12 l8 offset-l2" id="main-cont">
+        <div class="col s12 l8 offset-l2 center-align" id="main-cont">
             <h1 class="main-heading">Motorbike Event Finder</h1>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Quis lectus nulla at volutpat. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Ac tortor vitae purus faucibus 
-            ornare suspendisse sed. Integer enim neque volutpat ac tincidunt vitae. Urna nunc id cursus metus aliquam eleifend mi. Mi ipsum 
-            faucibus vitae aliquet nec ullamcorper sit amet. Accumsan lacus vel facilisis volutpat est. Senectus et netus et malesuada fames. 
-            Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Vehicula ipsum a arcu cursus. Donec adipiscing tristique 
-            risus nec feugiat. Ornare quam viverra orci sagittis eu volutpat odio. Ut eu sem integer vitae justo eget magna. Dolor sit amet 
-            consectetur adipiscing elit. Feugiat vivamus at augue eget arcu dictum varius duis at.</p>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Quis lectus nulla at volutpat. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Ac tortor vitae purus faucibus 
-            ornare suspendisse sed. Integer enim neque volutpat ac tincidunt vitae. Urna nunc id cursus metus aliquam eleifend mi. Mi ipsum 
-            faucibus vitae aliquet nec ullamcorper sit amet. Accumsan lacus vel facilisis volutpat est. Senectus et netus et malesuada fames. 
-            Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Vehicula ipsum a arcu cursus. Donec adipiscing tristique 
-            risus nec feugiat. Ornare quam viverra orci sagittis eu volutpat odio. Ut eu sem integer vitae justo eget magna. Dolor sit amet 
-            consectetur adipiscing elit. Feugiat vivamus at augue eget arcu dictum varius duis at.</p>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Quis lectus nulla at volutpat. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Ac tortor vitae purus faucibus 
-            ornare suspendisse sed. Integer enim neque volutpat ac tincidunt vitae. Urna nunc id cursus metus aliquam eleifend mi. Mi ipsum 
-            faucibus vitae aliquet nec ullamcorper sit amet. Accumsan lacus vel facilisis volutpat est. Senectus et netus et malesuada fames. 
-            Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Vehicula ipsum a arcu cursus. Donec adipiscing tristique 
-            risus nec feugiat. Ornare quam viverra orci sagittis eu volutpat odio. Ut eu sem integer vitae justo eget magna. Dolor sit amet 
-            consectetur adipiscing elit. Feugiat vivamus at augue eget arcu dictum varius duis at.</p>
+            <div class="row ">
+                <div class="col s10 offset-s1 m5 center-align">
+                    <figure>
+                        <img src="static/images/mock_biker_wedding.jpg" alt="2 motorbikes doing burnout with a bride between them" 
+                            class="center-align responsive-img">
+                        <figcaption>Mock Biker Wedding - August 2017</figcaption>
+                    </figure>
+                </div>
+                <div class="col s12 m7 center-align">
+                    <p class="landing-sub">Want to find or organise a biker event?</p>
+                    <p>Motorbike Event Finder is your one stop shop for all Bike related events. Whether you want to advertise your 
+                        event or find one, you need to look no further! 
+                    </p>
+                    <span class="small-text">Want to find upcoming events near you? <a href="{{ url_for('get_events') }}" class="anchor-links">Click here</a></span>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col s12 m7 center-align">
+                    <p class="landing-sub">Just want to arrange a local meet up?</p>
+                    <p>If you don't fancy a big event but want to find some fellow bikers for a local meet up or spin out, 
+                        you can do that by selecting 'Local Meet' on the event drop down when creating a new event.
+                    </p>
+                    <span class="small-text">Want to arrange a Meet Up? Simply sign up <a href="{{ url_for('get_events') }}" class="anchor-links">here</a> and create an event!</span>
+                </div>
+                <div class="col s10 offset-s1 m5 center-align">
+                    <figure>
+                        <img src="static/images/local_meet.jpg" alt="Bikers smiling and giving thumbs up" 
+                            class="center-align responsive-img">
+                        <figcaption>Local Meet Up - Hosted by Batman</figcaption>
+                    </figure>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
