@@ -165,18 +165,23 @@ def get_events():
 def search():
     """
     Returns search results from user input query or drop down
-    selection from events page.
-    Iterates through events returned and converts dates to date objects
-    in order to sort by date ascending. Converts back to strings after.
+    selection from events page and saves them to events list.
+    Iterates through events list and converts dates to date objects
+    in order to sort by date ascending. Converts date back to strings
+    after.
     Renders template for events.html.
     """
     query = request.form.get("query")
     event_type = request.form.get("event_type")
+    date = request.form.get("date")
     events = list()
+
     if query:
         events = list(mongo.db.events.find({"$text": {"$search": query}}))
     elif event_type:
         events = list(mongo.db.events.find({"$text": {"$search": event_type}}))
+    elif date:
+        events = list(mongo.db.events.find({"date": date}))
 
     for event in events:
         event_date = datetime.strptime(event.get('date'), '%d %B %Y').date()
@@ -230,6 +235,7 @@ def edit_event(event_id):
             "organiser": request.form.get("organiser"),
             "created_by": session["user"]
         }
+
         mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
         flash("Event Successfully Updated", 'message')
 
