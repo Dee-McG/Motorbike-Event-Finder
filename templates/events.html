@@ -13,7 +13,7 @@
                         
                         <!-- Event type drop down -->
                         <div class="input-field col s12 m6">
-                            <i class="fas fa-search prefix green-text text-darken-2"></i>
+                            <i class="fas fa-search prefix black-text text-darken-2"></i>
                             <select id="event_type" name="event_type" type="text" class="validate">
                                 <option value="" disabled selected>Choose Category</option>
                                 {% for category in categories %}
@@ -38,7 +38,7 @@
                         </div>
                         <!-- Search Button -->
                         <div class="col s4 m4">
-                            <button type="submit" class="green darken-1 black-text btn text-shadow" id="search-btn">
+                            <button type="submit" class="button-bg-color black-text btn text-shadow" id="search-btn">
                                 Search
                             </button>
                         </div>
@@ -50,7 +50,7 @@
                 <ul class="collapsible">
                     {% for event in events %}
                     <li>
-                        <div class="collapsible-header white-text green darken-1 text-shadow">
+                        <div class="collapsible-header card-collapse text-shadow">
                             <div class="col s12">
                                 <p class="event-title">{{ event.event_type }}<br> 
                                     {{ event.date }}

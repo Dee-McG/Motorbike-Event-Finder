@@ -33,12 +33,8 @@ def home():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     """
-    Sign up - This function allows the user to register on the Sign Up page.
-    If the username already exists in the DB a flash message will
-    display to alert the user.
-    If the username does not exist and registration was successful,
-    the user will be logged in, redirected to the profile page
-    and a flash message displayed to verify it was successful.
+    Sign up page, allows users to register for an account
+    if username doesn't already exist.
     """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -53,9 +49,11 @@ def signup():
             "password": generate_password_hash(request.form.get("password")),
             "name": request.form.get("name").lower()
         }
+        # Insert new user into users collection
         mongo.db.users.insert_one(newUser)
 
         session["user"] = request.form.get("username").lower()
+        # Display flash success message on screen
         flash("Registration Successful!", 'message')
         return redirect(url_for(
                     "profile", username=session["user"]))
@@ -66,17 +64,13 @@ def signup():
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
     """
-    Sign In - Function checks if username exists in 'users' database
-    If user name  exists and hashed password matches user input -
-    User is logged in, welcome message displayed and user redirected
-    to their profile.
-    If incorrect username or password, user is redirected to sign in
-    and a flash message displayed alerting of inccorect username/password.
+    Checks users collection for user and password to allow registered
+    users to sign in. Redirects to profile on successful sign in.
     """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # Check if user exists and that password matches.
         if existing_user:
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
@@ -135,18 +129,15 @@ def contact():
 @app.route("/events")
 def get_events():
     """
-    Reads all entries in the collection, iterates through them and converts
-    the events date into a date object. If the events date is greater than
-    todays date, it's added to the events list.
-    events is then sorted on date and the first 6 items saved back to events.
-    Dates are then converted back to strings and events list returned.
-    Passes categories list in to poplate event type drop down.
+    Reads all events in events collection and displays the first 6
+    from todays date. Displays events on events.html.
     """
     all_events = list(mongo.db.events.find())
     categories = mongo.db.categories.find().sort("event_type", 1)
     todays_date = date.today()
     events = list()
-
+    # Logic to convert date field to datetime and sort events by date
+    # if the date is greater than today.
     for event in all_events:
         event_date = datetime.strptime(event.get('date'), '%d %B %Y').date()
         if event_date > todays_date:
@@ -156,7 +147,7 @@ def get_events():
 
     events = events[:6]
 
-    for event in events:
+    for event in events:  # Convert date back to string
         event['date'] = datetime.strftime(event.get('date'), '%d %B %Y')
     return render_template("events.html", events=events, categories=categories)
 
@@ -166,9 +157,6 @@ def search():
     """
     Returns search results from user input query or drop down
     selection from events page and saves them to events list.
-    Iterates through events list and converts dates to date objects
-    in order to sort by date ascending. Converts date back to strings
-    after.
     Renders template for events.html.
     """
     query = request.form.get("query")
@@ -176,19 +164,34 @@ def search():
     date = request.form.get("date")
     events = list()
 
-    if query:
+    # Queries on multiple search fields
+    if query and date:
+        events = list(mongo.db.events.find
+                      ({'$and': [{"$text": {"$search": query}},
+                                 {"date": date}]}))
+    elif query and event_type:
+        events = list(mongo.db.events.find
+                      ({'$and': [{"$text": {"$search": query}},
+                                 {"event_type": event_type}]}))
+    elif event_type and date:
+        events = list(mongo.db.events.find
+                      ({'$and': [{"$text": {"$search": event_type}},
+                                 {"date": date}]}))
+    # Queries on single search fields
+    elif query:
         events = list(mongo.db.events.find({"$text": {"$search": query}}))
     elif event_type:
         events = list(mongo.db.events.find({"$text": {"$search": event_type}}))
     elif date:
         events = list(mongo.db.events.find({"date": date}))
 
+    # Iterate through events and convert date to datetime and sort on date
     for event in events:
         event_date = datetime.strptime(event.get('date'), '%d %B %Y').date()
         event['date'] = event_date
     events.sort(key=lambda x: x['date'])
 
-    for event in events:
+    for event in events:  # Convert date back to string
         event['date'] = datetime.strftime(event.get('date'), '%d %B %Y')
 
     categories = mongo.db.categories.find().sort("event_type", 1)
@@ -198,10 +201,8 @@ def search():
 @app.route("/create-event", methods=["GET", "POST"])
 def create_event():
     """
-    Gets form values from create event and stores into event object
-    when form submits.
-    Inserts record into events collection and shows flash message of success.
-    Returns categories to create_events page to populate drop downs on form.
+    Gets values from create event form and stores values
+    into MongoDB collection events. Renders create-event.html.
     """
     if request.method == "POST":
         event = {
@@ -213,6 +214,7 @@ def create_event():
             "created_by": session["user"]
         }
         mongo.db.events.insert_one(event)
+        # Flash message on successful creation
         flash("Event Successfully Created", 'message')
         return redirect(url_for("create_event"))
 
@@ -235,7 +237,7 @@ def edit_event(event_id):
             "organiser": request.form.get("organiser"),
             "created_by": session["user"]
         }
-
+        # Update unique event
         mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
         flash("Event Successfully Updated", 'message')
 
@@ -248,8 +250,8 @@ def edit_event(event_id):
 @app.route("/delete_event/<event_id>")
 def delete_event(event_id):
     """
-    Allows user to delete  an event. Returns user back to
-    their profile page.
+    Allows user to delete an event if they created it.
+    Returns user back to their profile page.
     """
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Event Successfully Deleted", 'message')

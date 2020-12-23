@@ -13,7 +13,7 @@
                     {% for event in events %}
                     {% if session.user|lower == event.created_by|lower %}
                     <li>
-                        <div class="collapsible-header black-text green darken-1 text-shadow">
+                        <div class="collapsible-header black-text card-collapse text-shadow">
                             <div class="col s12">
                                 <p class="event-title">{{ event.event_type }}<br> 
                                     {{ event.date }}
