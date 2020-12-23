@@ -2,17 +2,44 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s12 m8 offset-m2" id="main-cont">
+        <div class="col s12 l8 offset-l2" id="main-cont">
             <h1 class="main-heading">Profile</h1>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Quis lectus nulla at volutpat. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Ac tortor vitae purus faucibus 
-            ornare suspendisse sed. Integer enim neque volutpat ac tincidunt vitae. Urna nunc id cursus metus aliquam eleifend mi. Mi ipsum 
-            faucibus vitae aliquet nec ullamcorper sit amet. Accumsan lacus vel facilisis volutpat est. Senectus et netus et malesuada fames. 
-            Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Vehicula ipsum a arcu cursus. Donec adipiscing tristique 
-            risus nec feugiat. Ornare quam viverra orci sagittis eu volutpat odio. Ut eu sem integer vitae justo eget magna. Dolor sit amet 
-            consectetur adipiscing elit. Feugiat vivamus at augue eget arcu dictum varius duis at.</p>
-            
+            <p class="event-sub">Manage Events</p>
+
+            {% if events|length > 0 %}
+                <!-- Event Information -->
+                <ul class="collapsible">
+                    {% for event in events %}
+                    {% if session.user|lower == event.created_by|lower %}
+                    <li>
+                        <div class="collapsible-header black-text card-collapse text-shadow">
+                            <div class="col s12">
+                                <p class="event-title">{{ event.event_type }}<br> 
+                                    {{ event.date }}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Expanded Event Information -->
+                        <div class="collapsible-body">
+                            <p class="event-header">Description:<br> 
+                                <span class="event-sub">{{ event.description }}</span>
+                            </p>
+                            <p class="event-header">Location:<br>
+                                <span class="event-sub">{{ event.location }}</span>
+                            </p>
+                            <p class="event-header">Organiser:<br>
+                                <span class="event-sub">{{ event.organiser }}</span>
+                            </p>
+                            <!-- Edit / Delete Buttons -->
+                            <a href="{{ url_for('delete_event', event_id=event._id) }}" class="btn-small red accent-4">Delete</a>
+                            <a href="{{ url_for('edit_event', event_id=event._id) }}" class="btn-small light-green lighten-1">Edit</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

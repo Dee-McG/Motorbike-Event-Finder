@@ -4,12 +4,53 @@
     <div class="row">
         <div class="col s12 l8 offset-l2" id="main-cont">
             <h1 class="main-heading">Upcoming Events</h1>
+
+            <!-- Search Form -->
+            <div class="row card-panel grey lighten-5">
+                <form action="{{ url_for('search') }}" method="post" class="col s12">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <div class="row">
+                        
+                        <!-- Event type drop down -->
+                        <div class="input-field col s12 m6">
+                            <i class="fas fa-search prefix black-text text-darken-2"></i>
+                            <select id="event_type" name="event_type" type="text" class="validate">
+                                <option value="" disabled selected>Choose Category</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.event_type }}">{{ category.event_type }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Event Type</label>
+                        </div>
+                        <!-- Text search box -->
+                        <div class="input-field col s12 m6">
+                            <input type="text" name="query" id="query" class="validate" placeholder="Location">
+                            <label for="query">Search</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Date Picker -->
+                        <div class="input-field col s8 m6">
+                            <i class="fas fa-calendar-alt prefix text-darken-4"></i>
+                            <input id="date" name="date" type="text" class="datepicker validate">
+                            <label for="date">Date</label>
+                        </div>
+                        <!-- Search Button -->
+                        <div class="col s4 m4">
+                            <button type="submit" class="button-bg-color black-text btn text-shadow" id="search-btn">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             
-            {% if events %}
+            {% if events|length > 0 %}
                 <ul class="collapsible">
                     {% for event in events %}
                     <li>
-                        <div class="collapsible-header white-text green darken-1 text-shadow">
+                        <div class="collapsible-header card-collapse text-shadow">
                             <div class="col s12">
                                 <p class="event-title">{{ event.event_type }}<br> 
                                     {{ event.date }}
@@ -31,7 +72,7 @@
                     {% endfor %}
                 </ul>
             {% else %}
-            <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+            <p class="red-text text-darken-4 center-align">No Results Found</p>
             {% endif %}
             
         </div>

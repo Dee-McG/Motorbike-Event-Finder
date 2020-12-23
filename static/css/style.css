@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Inter:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Play:wght@700&display=swap');
 
 * {
     color: black;
     font-size: 10px;
+    font-family: 'Play', sans-serif;
 }
 
 /* Generic */
 p {
     font-size: 1.25rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Play', sans-serif;
 }
 
 a {
@@ -16,12 +17,17 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bevan', sans-serif;
+    font-family: 'PT Serif', sans-serif;
 }
 
 .main-heading {
     font-size: 6vw;
-    color: #43a047;
+    color: #831717;
+    text-shadow: 4px 3px 2px rgba(150, 150, 150, 1);
+}
+
+.button-bg-color {
+    background-color: #d2d2af;
 }
 
 /*  Navigation Styling  */
@@ -40,7 +46,8 @@ nav li a {
 nav {
     border: 1px solid black;
     min-height: 150px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Play', sans-serif;
+    background-color: #d2d2af;
 }
 
 nav .brand-logo {
@@ -73,10 +80,21 @@ main {
 /* Events Page */
 .event-header {
     font-size: 2rem;
+    color: #831717;
+    font-family: 'PT Serif', sans-serif;
 }
 
 .event-sub {
     font-size: 1rem;
+}
+
+#search-btn {
+    margin-top: 20px;
+}
+
+.card-collapse {
+    background-color: #d2d2af;
+    border: 1px solid black;
 }
 
 /* Contact Page */
@@ -89,10 +107,25 @@ main {
 /* Footer */
 footer {
     border: 1px solid black;
+    background-color: #d2d2af;
 }
 
 a:link {
   color: black;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    color: #831717;
+    font-family: 'PT Serif', sans-serif;
+}
+
+.footer-content {
+    font-size: 1rem;
+}
+
+.footer-copyright {
+    font-size: 10px;
 }
 
 /* Media Queries */
