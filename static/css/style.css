@@ -15,7 +15,8 @@ p {
 a {
     text-decoration: none;
     color: black;
-    font-weight: bolder;  
+    font-weight: bolder;
+    font-size: 1rem;  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,6 +90,7 @@ main {
 
 .anchor-links {
     color: #ff0606;
+    font-size: 1rem
 }
 
 .small-text {
