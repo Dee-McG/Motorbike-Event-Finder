@@ -232,14 +232,23 @@ the main website without needing to use the browser navigation buttons.
 ### **The Skeleton Plane**
 #### Wireframes
 * [Home](readme_images/wireframes/home.pdf)
+![Home](readme_images/wireframes/home.JPG)
 * [404](readme_images/wireframes/404.pdf)
+![404](readme_images/wireframes/404.JPG)
 * [Contact](readme_images/wireframes/contact.pdf)
+![Contact](readme_images/wireframes/contact.JPG)
 * [Create Event](readme_images/wireframes/create_event.pdf)
+![Create Event](readme_images/wireframes/create_event.JPG)
 * [Edit Event](readme_images/wireframes/edit_event.pdf)
+![Edit Event](readme_images/wireframes/edit_event.JPG)
 * [Events](readme_images/wireframes/events.pdf)
+![Events](readme_images/wireframes/events.JPG)
 * [Profile](readme_images/wireframes/profile.pdf)
+![Profile](readme_images/wireframes/profile.JPG)
 * [Sign In](readme_images/wireframes/signin.pdf)
+![Sign In](readme_images/wireframes/signin.JPG)
 * [Sign Up](readme_images/wireframes/signup.pdf)
+![Sign Up](readme_images/wireframes/signup.JPG)
 
 #### Database Design
 MongoDB Object format examples:
@@ -272,12 +281,16 @@ MongoDB Object format examples:
 ### Design
 
 #### Colour Scheme
-The main website colours will be Green (#43a047) for the header/footer background and heading text. 
+The main background colour is ![#d2d2af](https://placehold.it/15/d2d2af/000000?text=+) for the header, footer
+and all button backgrounds. 
 
-The main website text will be black.
+The main website text is black ![#000000](https://placehold.it/15/000000/000000?text=+).
+
+All custom heading text is ![#831717](https://placehold.it/15/831717/000000?text=+)
 
 #### Typography
-Fonts TBC
+The main heading on all pages and the expanded materialize card headings use the 'PT Serif' font while the 
+rest of the websites content uses the 'Play' font.
 
 #### Imagery
 A background image will be used on all pages displaying a map of Ireland, this image was 
@@ -285,15 +298,27 @@ taken from [mapswire](https://mapswire.com/countries/ireland/).
 
 The website logo was created using online software from the website [free logo design](https://freelogodesign.org).
 
+The home page image of the bride and motorbike burnouts is property of Debbie Harkin. - Permission was granted 
+to use the image.
+
+The second home page image of the three biker meet is property of Connor Meehan. - Permission to use this was given.
+
 #### Differences to Design
+After meeting with the client, Gareth G half way through the project, some of the Design was changed as it did not 
+meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
 
-
+Original design and wireframes had the text input used to search events as a dual box that could search by either 
+location or date. This proved difficult to implement and was agreed upon with the client to add anadditional date 
+picker search field.
 ****
 ## Features
 
 ### Existing Features
 
 ### Features Left to Implement
+
+A feature to be included in the next release will allow users the ability to upload their own custom event posters. 
+These will be displayed in the materialize cards along with the event information.
 
 ****
 ## Technologies
@@ -306,21 +331,28 @@ The website logo was created using online software from the website [free logo d
     on form submit.
     * [jQuery](https://jquery.com/) is used for the mobile side nav and also to display a message verifying contact form status (succeed/fail).
 * [Python](https://www.python.org/)
-    * Python Modules Used:
-        * dnspython
-        * flask
-        * flask-pymongo
-        * Werkzeug
+    * This projects core was created using Python, the back-end logic, means to run/view the Website and templating.
+    * Python Modules used (These can be found in the requirements.txt project file):
+        * dnspython==2.0.0
+        * Flask==1.1.2
+        * Flask-PyMongo==2.3.0
+        * Flask-WTF==0.14.3
+        * itsdangerous==1.1.0
+        * pymongo==3.11.2
+        * Werkzeug==1.0.1
+        * WTForms==2.3.3
 * [MongoDB](https://www.mongodb.com/1)
-    * MongoDB was used to create the document based databases used as data storage for this project.
+    * MongoDB was used to create the document based databases(collections) used as data storage for this project.
 * [Materialize](https://materializecss.com/)
     * The Materialize framework was used through the website for layout and responsiveness.
 * [Google Fonts](https://fonts.google.com/)
 	* Google fonts are used throughout the project to import the *Inter* and *Bevan* fonts.
 * [GitHub](https://github.com/)
-	* GithHub is the hosting site used to store the source code for the Website and [Git Pages](https://pages.github.com/) is used for the deployment of the live site.
+	* GithHub is the hosting site used to store the source code for the Website.
 * [Git](https://git-scm.com/)
 	* Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
+* [Heroku](https://dashboard.heroku.com/apps)
+    * Heroku was used to deploy the live website.
 * [TinyJPG](https://tinyjpg.com/)
 	* TinyJPG/TinyPNG is used to reduce the file sizes of images before being deployed to reduce storage and bandwith.
 * [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
@@ -329,6 +361,8 @@ The website logo was created using online software from the website [free logo d
 	* This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
 * [freelogdesign](https://www.freelogodesign.org/)
     * Free logo design was used in order to create the website logo.
+* [Font Awesome](https://fontawesome.com/)
+    * All the Icons displayed throughout the website are Font Awesome icons.
 * [Favicon](https://favicon.io/)
     * Favicon.io was used to make the site favicon 
 * [Techsini](http://techsini.com/multi-mockup/index.php)
@@ -403,6 +437,11 @@ Website Logo - Created with [free logo design](https://freelogodesign.org).
 
 ### Code
 
+[Stack Overflow](https://stackoverflow.com/questions/35843675/link-to-a-specific-location-in-a-flask-template) - The code used to navigate 
+to a specific section of a page using Flask templates was taken from here.
+
+[W3Schools](https://www.w3schools.com/tags/tag_figcaption.asp) - The figure and caption code on the home page images was done by following 
+a W3Schools tutorial.
 ### Acknowledgements
 
 ****

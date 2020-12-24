@@ -102,11 +102,14 @@
                         Site Links
                     </p>
                     <p class="footer-content">
-                        Site links - TBD
+                        <a href="{{ url_for('get_events') }}">Find Events</a><br>
+                        <a href="{{ url_for('contact') }}">Contact Us</a><br>
+                        <a href="{{ url_for('signup') }}">Sign Up</a><br>
+                        <a href="{{ url_for('home', _anchor='about') }}">About Us</a>
                     </p>
                 </div>
                 <!-- Copyright info -->
-                <div class="col s12 m12 l4 center">
+                <div class="col s12 center-align">
                     <p class="footer-copyright">
                         Copyright &copy; 2020 by Daisy McGirr
                     </p>

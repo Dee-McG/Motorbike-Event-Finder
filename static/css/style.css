@@ -13,6 +13,9 @@ p {
 }
 
 a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
     font-size: 1rem;  
 }
 
@@ -21,9 +24,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-heading {
-    font-size: 6vw;
+    font-size: 3rem;
     color: #831717;
-    text-shadow: 4px 3px 2px rgba(150, 150, 150, 1);
+    text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
+    text-align: center;
 }
 
 .button-bg-color {
@@ -77,6 +81,22 @@ main {
     color: green;
 }
 
+/* Home Page */
+
+.landing-sub {
+    color: #831717;
+    font-weight: bolder;
+}
+
+.anchor-links {
+    color: #ff0606;
+    font-size: 1rem
+}
+
+.small-text {
+    font-size: 1rem;
+}
+
 /* Events Page */
 .event-header {
     font-size: 2rem;
@@ -102,6 +122,12 @@ main {
     font-size: 1vw;
     font-weight: bolder;
     margin-bottom: 1rem;
+}
+
+/* Error pages */
+
+.error-heading {
+    display: none;
 }
 
 /* Footer */
@@ -143,9 +169,9 @@ a:link {
 }
 
 /* Media Query to make heading text bigger on larger screen sizes */
-@media only screen and (min-width: 839px) {
+@media only screen and (min-width: 655px) {
     .main-heading {
-        font-size: 8vh;
+        font-size: 4rem;
     }
 }
 
@@ -160,5 +186,27 @@ a:link {
 @media only screen and (min-width: 700px) {
     .event-sub {
         font-size: 1.5rem;
+    }
+}
+
+/* Media Query to make error nav header text display on medium screen sizes */
+@media only screen and (min-width: 465px) {
+    .error-heading {
+        display: block;
+        font-size: 2rem;
+        color: #831717;
+        text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
+        text-align: right;
+        padding-right: 5px;
+    }
+}
+
+/* Media Query to make error nav header text bigger and centered on larger screen sizes */
+@media only screen and (min-width: 750px) {
+    .error-heading {
+        font-size: 3rem;
+        color: #831717;
+        text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
+        text-align: center;
     }
 }
