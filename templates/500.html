@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Compiled and minified CSS for Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+            type="text/css">
+        <!-- Import custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        <!-- Import favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+
+        {% block styles %}
+        {% endblock %}
+        <title>Motorbike Event Finder</title>
+    </head>
+    <body>
+        <!-- Nav Start -->
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+
+                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo left" id="logo" alt="Site Logo"></a>
+                <div class="center-align error-heading">Motorbike Event Finder</div>
+            </div>
+        </nav>
+        <!-- Nav End -->
+        
+        <!-- Main Content -->
+        <main class="center-align">
+           <p class="landing-sub">Internal Server Error</p>
+           <p>Whoops, something has gone wrong!</p>
+           <p>To return to the home page, please click <a href="{{ url_for('home') }}">here</a></p>
+        </main>
+
+        <!-- Start Footer -->
+        <footer>
+            <!-- Copyright info -->
+            <div class="col s12 center-align">
+                <p class="footer-copyright">
+                    Copyright &copy; 2020 by Daisy McGirr
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
