@@ -17,7 +17,7 @@
                                     <option value="{{ category.event_type }}">{{ category.event_type }}</option>
                                 {% endfor %}
                             </select>
-                            <label>Event Type</label>
+                            <label for="event_type" class="form-label">Event Type</label>
                         </div>
                     </div>
                     <!-- Location -->
@@ -25,7 +25,7 @@
                         <div class="input-field col s8">
                             <i class="fas fa-location-arrow prefix text-darken-4"></i>
                             <input id="location" name="location" type="text" class="validate" required>
-                            <label for="location">Location</label>
+                            <label for="location" class="form-label">Location</label>
                         </div>
                     </div>
                     <!-- Date -->
@@ -33,7 +33,7 @@
                         <div class="input-field col s8">
                             <i class="fas fa-calendar-alt prefix text-darken-4"></i>
                             <input id="date" name="date" type="text" class="datepicker validate" required>
-                            <label for="date">Date</label>
+                            <label for="date" class="form-label">Date</label>
                         </div>
                     </div>
                     <!-- Event Description -->
@@ -41,7 +41,7 @@
                         <div class="input-field col s8">
                             <i class="fas fa-align-justify prefix text-darken-4"></i>
                             <textarea id="description" name="description" type="text" class="materialize-textarea validate"></textarea>
-                            <label for="description">Description</label>
+                            <label for="description" class="form-label">Description</label>
                         </div>
                     </div>
                     <!-- Organiser -->
@@ -49,7 +49,7 @@
                         <div class="input-field col s8">
                             <i class="fas fa-signature prefix text-darken-4"></i>
                             <input id="organiser" name="organiser" type="text" class="validate">
-                            <label for="organiser">Organiser</label>
+                            <label for="organiser" class="form-label">Organiser</label>
                         </div>
                     </div>
                     <!-- Create Event Submit Button -->
