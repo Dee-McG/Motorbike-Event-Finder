@@ -1,3 +1,5 @@
+/* Function for contact form to send email with 
+    contact form contents to site owner */
 function sendMail(contactForm) {
     emailjs.send("gmail", "ms3", {
         "from_name": contactForm.name.value,
@@ -6,13 +8,12 @@ function sendMail(contactForm) {
     })
     .then(
         function() {
-            document.getElementById("contact-form").reset();
             $('.email-response').html("Thank you for your email, someone will be in touch shortly.");
         },
         function() {
-            document.getElementById("contact-form").reset();
             $('.email-response').html("There was an error with our email service. Please try again in a few minutes.");
         }
     );
+    document.getElementById("contact-form").reset();
     return false;
 }
