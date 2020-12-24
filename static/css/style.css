@@ -34,6 +34,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #d2d2af;
 }
 
+button.button-bg-color:hover {
+    background-color: #e7e97e;    
+}
+
+ form .form-label {
+    color: #5c5c5c;
+}
+
 /*  Navigation Styling  */
 nav li a {
     color: black;
