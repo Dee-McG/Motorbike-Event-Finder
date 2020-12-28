@@ -14,7 +14,7 @@
                         <!-- Event type drop down -->
                         <div class="input-field col s12 m6">
                             <i class="fas fa-search prefix black-text text-darken-2"></i>
-                            <select id="event_type" name="event_type" type="text" class="validate">
+                            <select id="event_type" name="event_type" class="validate">
                                 <option value="" disabled selected>Choose Category</option>
                                 {% for category in categories %}
                                     <option value="{{ category.event_type }}">{{ category.event_type }}</option>
