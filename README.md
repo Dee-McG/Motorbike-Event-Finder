@@ -3,6 +3,8 @@
 The Motorbike Event Finder does exactly what it says on the tin. It's a place where users can create and view 
 Motorbike Events. The live Website can be found [here](https://motorbike-event-finder.herokuapp.com/).
 
+![Mockup](readme_images/mockup.jpg)
+
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
     * [The Strategy Plane](#The-Strategy-Plane)
@@ -30,7 +32,8 @@ Motorbike Events. The live Website can be found [here](https://motorbike-event-f
 * [Deployment](#Deployment)
     * [Project Creation](#Project-Creation)
     * [GitHub Pages](#Deployment-To-Heroku)
-    * [Locally](Run-Locally)
+    * [Run Locally](#Run-Locally)
+    * [Fork Project](#Fork-Project)
 * [Credits](#Credits)
   * [Content](#Content)
   * [Acknowledgements](#Acknowledgements)
@@ -211,9 +214,9 @@ Validation will be performed on the form to ensure valid data input. The form wi
 field is blank.
 
 Form Fields:
-* Name - Type: Text, Max length: 50 chars, required.
-* Email - Type: Email, Max length: 50 chars, required.
-* Comments - Type: TextArea, Max length: 1500 characters, required.
+* Name - Type: Text, required.
+* Email - Type: Email, required.
+* Comments - Type: TextArea, required.
 
 User Story:
 > As a user, I want to be able to return to the main site without having to use the browser buttons so 
@@ -231,23 +234,40 @@ the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
-* [Home](readme_images/wireframes/home.pdf)
+[Home](readme_images/wireframes/home.pdf)
+
 ![Home](readme_images/wireframes/home.JPG)
-* [404](readme_images/wireframes/404.pdf)
+
+[404](readme_images/wireframes/404.pdf)
+
 ![404](readme_images/wireframes/404.JPG)
-* [Contact](readme_images/wireframes/contact.pdf)
+
+[Contact](readme_images/wireframes/contact.pdf)
+
 ![Contact](readme_images/wireframes/contact.JPG)
-* [Create Event](readme_images/wireframes/create_event.pdf)
+
+[Create Event](readme_images/wireframes/create_event.pdf)
+
 ![Create Event](readme_images/wireframes/create_event.JPG)
-* [Edit Event](readme_images/wireframes/edit_event.pdf)
+
+[Edit Event](readme_images/wireframes/edit_event.pdf)
+
 ![Edit Event](readme_images/wireframes/edit_event.JPG)
-* [Events](readme_images/wireframes/events.pdf)
+
+[Events](readme_images/wireframes/events.pdf)
+
 ![Events](readme_images/wireframes/events.JPG)
-* [Profile](readme_images/wireframes/profile.pdf)
+
+[Profile](readme_images/wireframes/profile.pdf)
+
 ![Profile](readme_images/wireframes/profile.JPG)
-* [Sign In](readme_images/wireframes/signin.pdf)
+
+[Sign In](readme_images/wireframes/signin.pdf)
+
 ![Sign In](readme_images/wireframes/signin.JPG)
-* [Sign Up](readme_images/wireframes/signup.pdf)
+
+[Sign Up](readme_images/wireframes/signup.pdf)
+
 ![Sign Up](readme_images/wireframes/signup.JPG)
 
 #### Database Design
@@ -267,6 +287,7 @@ MongoDB Object format examples:
 &nbsp;&nbsp;&nbsp;&nbsp;date : "09 February, 2021",<br>
 &nbsp;&nbsp;&nbsp;&nbsp;description : "This Rally is hosted by Unicorn MCC.",<br>
 &nbsp;&nbsp;&nbsp;&nbsp;organiser : "Daisy McGirr"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;created_by : session[user]<br>
 }
 
 **Collection: users**<br>
@@ -308,18 +329,36 @@ After meeting with the client, Gareth G half way through the project, some of th
 meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
 
 Original design and wireframes had the text input used to search events as a dual box that could search by either 
-location or date. This proved difficult to implement and was agreed upon with the client to add anadditional date 
+location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
 picker search field.
+
+Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. 
+This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to 
+cancel or delete.
+
+500 Error page was not included in the original design but was implemented with the same page layout as the 404 page 
+to account for any internal server errors.
 ****
 ## Features
 
 ### Existing Features
+
+* Home page displaying images and information on the sites purpose.
+* User sign up functionality.
+* Sign in / Sign out functionality.
+* Event page that displays the next six events from todays date and allows users to search for events.
+* Create event page allowing signed in users to create events.
+* Profile page showing basic user information and events created by the user with modification ability.
+* Contact page with form and EmailJS functionality to contact site owner.
+* Mobile responsive design.
+* Site wide footer containing contact information, Copyright info and Site Links.
 
 ### Features Left to Implement
 
 A feature to be included in the next release will allow users the ability to upload their own custom event posters. 
 These will be displayed in the materialize cards along with the event information.
 
+Admin login will be implemented in the next release to allow admin users to delete any events that may be inappropriate.
 ****
 ## Technologies
 * [HTML](https://en.wikipedia.org/wiki/HTML)
@@ -329,9 +368,15 @@ These will be displayed in the materialize cards along with the event informatio
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
     * JavaScript is used along with [emailjs](https://www.emailjs.com/) for the contact form. This sends an email to the owner
     on form submit.
-    * [jQuery](https://jquery.com/) is used for the mobile side nav and also to display a message verifying contact form status (succeed/fail).
+    * [jQuery](https://jquery.com/) is used for the following: 
+        * Mobile side nav
+        * Displaying Success/Fail message verifying contact form status.
+        * Collapsible Materialize elements.
+        * Materialize modal.
+        * Datepicker functionality on forms.
+        * To populate downdrops on select elements.
 * [Python](https://www.python.org/)
-    * This projects core was created using Python, the back-end logic, means to run/view the Website and templating.
+    * This projects core was created using Python, the back-end logic and the means to run/view the Website.
     * Python Modules used (These can be found in the requirements.txt project file):
         * dnspython==2.0.0
         * Flask==1.1.2
@@ -366,35 +411,45 @@ These will be displayed in the materialize cards along with the event informatio
 * [Favicon](https://favicon.io/)
     * Favicon.io was used to make the site favicon 
 * [Techsini](http://techsini.com/multi-mockup/index.php)
-    * tecnisih.com Multi Device Website Mockup Generator was used to create the Mock up image in this README
-
+    * Multi Device Website Mockup Generator was used to create the Mock up image in this README
 
 ****
 ## Testing
 
 ### Test Strategy
 #### **Summary**
+Testing is required on all features and user stories documented in this README. 
+All clickable links must redirect to the correct pages. All forms linked to MongoDB
+must be tested to ensure they insert all given fields into the correct collections.
 
+HTML Code must pass through the [W3C HTML Validator](https://validator.w3.org/#validate_by_uri).
 
+CSS Code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
+
+Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 #### **High Level Test Cases**
-
+![Test Cases](readme_images/test_cases.JPG)
 
 #### **Access Requirements**
-
+Tester must have access to MongoDB in order to manually verify the insertion 
+of records to users and events collections.
 
 #### **Regression Testing**
-
+All features previous tested during development in a local environment must be regression 
+tested in production on the live website.
 
 #### **Assumptions and Dependencies**
-
+Testing is dependent on the website being deployed live on Heroku.
 
 #### **Out of Scope**
-
+Only test cases listed under High Level Test Cases will be performed as part of this 
+testing effort.
 
 ### Test Results
 
-### Issues and Resolutions to issues found during testing
-
+Full test results can be found [here](TESTING.md)
 
 ****
 ## Deployment
@@ -419,6 +474,34 @@ The following commands were used for version control throughout the project:
 
 ### Deployment to Heroku
 
+**Create application:**
+1. Navigate to Heroku.com and login.
+1. Click on the new button.
+1. Select create new app.
+1. Enter the app name.
+1. Select region.
+
+**Set up connection to Github Repository:**
+
+1. Click the deploy tab and select GitHub - Connect to GitHub.
+1. A prompt to find a github repository to connect to will then be displayed.
+1. Enter the repository name for the project and click search.
+1. Once the repo has been found, click the connect button.
+
+**Set environment variables:**
+
+Click the settings tab and then click the Reveal Confid Vars button and add the following:
+
+1. key: IP, value: 0.0.0.0
+2. key: PORT, value: 5000
+3. key: MONGO_DBNAME, value: (database name you want to connect to)
+4. key: MONGO_URI, value: (mongo uri - This can be found in MongoDB by going to clusters > connect > connect to your application and substituting the password and 
+    dbname that you set up in the link).
+5. key: SECRET_KEY, value: (This is a custom secret key set up for configuration to keep client-side sessions secure).
+
+**Enable automatic deployment:**
+1. Click the Deploy tab
+1. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
 
 ### Run Locally
 1. Navigate to the GitHub [Repository](https://github.com/Daisy-McG/Motorbike-Event-Finder).
@@ -427,6 +510,17 @@ The following commands were used for version control throughout the project:
 1. Open your developement editor of choice and open a terminal window in a directory of your choice.
 1. Use the 'git clone' command in terminal followed by the copied git URL.
 1. A clone of the project will be created locally on your machine.
+
+### Fork Project 
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point 
+for your own idea. - Definition from [Github Docs](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo).
+
+1. Navigate to the GitHub Repository you want to fork.
+1. On the top right of the page under the header, click the fork button.
+    
+    ![Fork](readme_images/fork.JPG)
+1. This will create a duplicate of the full project in your GitHub Repository.
 
 ****
 ## Credits
@@ -442,6 +536,12 @@ to a specific section of a page using Flask templates was taken from here.
 
 [W3Schools](https://www.w3schools.com/tags/tag_figcaption.asp) - The figure and caption code on the home page images was done by following 
 a W3Schools tutorial.
+
 ### Acknowledgements
+
+I'd like to give special thanks to the the following people for their help with my project.
+* Slack user Seán for providing me information on how to implement 404 and 500 page routing with flask.
+* Slack user Anthony for his help with my error/message Flash messages.
+* My mentor Spencer Baribell for his guidance throughout the project.
 
 ****
