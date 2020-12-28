@@ -139,6 +139,18 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Profile Page */
+.profile-info {
+    background-color: #d2d2af;
+    border: 1px solid black;
+    padding: 0 2.75rem 0 2.75rem;
+}
+
+.profile-sub-headings {
+    color: #831717;
+    font-size: 2rem;
+}
+
 /* Error pages */
 
 .error-heading {

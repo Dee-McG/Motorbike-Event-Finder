@@ -5,7 +5,18 @@
         <div class="col s12 l8 offset-l2" id="main-cont">
             <h1 class="main-heading">Profile</h1>
 
-            <p class="event-sub">Manage Events</p>
+            <p class="profile-sub-headings">Basic Information</p>
+            <div class="profile-info">
+                <p>Username: {{ username }}</p>
+                <p>Name: 
+                    {% if username.name  %}
+                        {{ username.name }} 
+                    {% else %}
+                        Not disclosed
+                    {% endif %}
+                </p>
+            </div>
+            <p class="profile-sub-headings">Manage Events</p>
 
             {% if events|length > 0 %}
                 <!-- Event Information -->
