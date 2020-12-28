@@ -38,8 +38,12 @@ button.button-bg-color:hover {
     background-color: #e7e97e;    
 }
 
- form .form-label {
+form .form-label {
     color: #5c5c5c;
+}
+
+.no-padding {
+    padding: 0;
 }
 
 /*  Navigation Styling  */
@@ -104,6 +108,10 @@ main {
     font-size: 1rem;
 }
 
+.event-images {
+    width: 100%;
+}
+
 /* Events Page */
 .event-header {
     font-size: 2rem;
@@ -129,6 +137,18 @@ main {
     font-size: 1vw;
     font-weight: bolder;
     margin-bottom: 1rem;
+}
+
+/* Profile Page */
+.profile-info {
+    background-color: #d2d2af;
+    border: 1px solid black;
+    padding: 0 2.75rem 0 2.75rem;
+}
+
+.profile-sub-headings {
+    color: #831717;
+    font-size: 2rem;
 }
 
 /* Error pages */

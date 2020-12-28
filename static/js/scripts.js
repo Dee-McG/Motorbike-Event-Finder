@@ -5,6 +5,8 @@ $(document).ready(function(){
     $('select').formSelect();
     // Collapsible events
     $('.collapsible').collapsible();
+    // Modal initialiser
+    $('.modal').modal();
     // Date picker 
     $('.datepicker').datepicker({
         format: "dd mmmm yyyy",
