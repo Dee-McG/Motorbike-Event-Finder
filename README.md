@@ -329,8 +329,12 @@ After meeting with the client, Gareth G half way through the project, some of th
 meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
 
 Original design and wireframes had the text input used to search events as a dual box that could search by either 
-location or date. This proved difficult to implement and was agreed upon with the client to add anadditional date 
+location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
 picker search field.
+
+Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. 
+This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to 
+cancel or delete.
 
 500 Error page was not included in the original design but was implemented with the same page layout as the 404 page 
 to account for any internal server errors.
@@ -364,7 +368,13 @@ Admin login will be implemented in the next release to allow admin users to dele
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
     * JavaScript is used along with [emailjs](https://www.emailjs.com/) for the contact form. This sends an email to the owner
     on form submit.
-    * [jQuery](https://jquery.com/) is used for the mobile side nav and also to display a message verifying contact form status (succeed/fail).
+    * [jQuery](https://jquery.com/) is used for the following: 
+        * Mobile side nav
+        * Displaying Success/Fail message verifying contact form status.
+        * Collapsible Materialize elements.
+        * Materialize modal.
+        * Datepicker functionality on forms.
+        * To populate downdrops on select elements.
 * [Python](https://www.python.org/)
     * This projects core was created using Python, the back-end logic and the means to run/view the Website.
     * Python Modules used (These can be found in the requirements.txt project file):
@@ -401,35 +411,45 @@ Admin login will be implemented in the next release to allow admin users to dele
 * [Favicon](https://favicon.io/)
     * Favicon.io was used to make the site favicon 
 * [Techsini](http://techsini.com/multi-mockup/index.php)
-    * tecnisih.com Multi Device Website Mockup Generator was used to create the Mock up image in this README
-
+    * Multi Device Website Mockup Generator was used to create the Mock up image in this README
 
 ****
 ## Testing
 
 ### Test Strategy
 #### **Summary**
+Testing is required on all features and user stories documented in this README. 
+All clickable links must redirect to the correct pages. All forms linked to MongoDB
+must be tested to ensure they insert all given fields into the correct collections.
 
+HTML Code must pass through the [W3C HTML Validator](https://validator.w3.org/#validate_by_uri).
 
+CSS Code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
+
+Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 #### **High Level Test Cases**
-
+![Test Cases](readme_images/test_cases.JPG)
 
 #### **Access Requirements**
-
+Tester must have access to MongoDB in order to manually verify the insertion 
+of records to users and events collections.
 
 #### **Regression Testing**
-
+All features previous tested during development in a local environment must be regression 
+tested in production on the live website.
 
 #### **Assumptions and Dependencies**
-
+Testing is dependent on the website being deployed live on Heroku.
 
 #### **Out of Scope**
-
+Only test cases listed under High Level Test Cases will be performed as part of this 
+testing effort.
 
 ### Test Results
 
-### Issues and Resolutions to issues found during testing
-
+Full test results can be found [here](TESTING.md)
 
 ****
 ## Deployment
