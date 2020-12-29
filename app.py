@@ -97,7 +97,7 @@ def profile(username):
     created by the user.
     """
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"username": session["user"]})
 
     if session["user"]:
         events = list(mongo.db.events.find().sort("date"))
