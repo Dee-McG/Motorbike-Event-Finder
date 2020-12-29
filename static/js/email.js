@@ -14,6 +14,7 @@ function sendMail(contactForm) {
             $('.email-response').html("There was an error with our email service. Please try again in a few minutes.");
         }
     );
+    // Reset Form data
     document.getElementById("contact-form").reset();
     return false;
 }
