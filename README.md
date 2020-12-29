@@ -305,7 +305,7 @@ MongoDB Object format examples:
 The main background colour is ![#d2d2af](https://placehold.it/15/d2d2af/000000?text=+) for the header, footer
 and all button backgrounds. 
 
-The main website text is black ![#000000](https://placehold.it/15/000000/000000?text=+).
+The main website text is black ![#000000](https://placehold.it/15/000000/000000?text=+)
 
 All custom heading text is ![#831717](https://placehold.it/15/831717/000000?text=+)
 
@@ -533,6 +533,9 @@ Website Logo - Created with [free logo design](https://freelogodesign.org).
 
 [Stack Overflow](https://stackoverflow.com/questions/35843675/link-to-a-specific-location-in-a-flask-template) - The code used to navigate 
 to a specific section of a page using Flask templates was taken from here.
+
+[Stack overflow](https://stackoverflow.com/questions/5272433/html5-form-required-attribute-set-custom-validation-message) - The code used to 
+create custom error messages on invalid form inputs was copied and modified from this stack overflow post.
 
 [W3Schools](https://www.w3schools.com/tags/tag_figcaption.asp) - The figure and caption code on the home page images was done by following 
 a W3Schools tutorial.
