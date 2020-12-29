@@ -1,5 +1,25 @@
 # Test Results
 
+An additional test case (TC021) was added that was not included in the High Level Test cases in the Test Strategy.
+This was added to cover testing of the User Story " As a user, I want the main purpose of the site to be clear so 
+that I immediately know what the site is intended for upon entering." as this was missed in the original planning.
+
+Full test results can be found in an excel document [here](testing/test_results.xlsx)
+
+![Test Results](testing/test_results_1.JPG)
+![Test Results](testing/test_results_2.JPG)
+![Test Results](testing/test_results_3.JPG)
+![Test Results](testing/test_results_4.JPG)
+![Test Results](testing/test_results_5.JPG)
+![Test Results](testing/test_results_6.JPG)
+![Test Results](testing/test_results_7.JPG)
+![Test Results](testing/test_results_8.JPG)
+![Test Results](testing/test_results_9.JPG)
+![Test Results](testing/test_results_10.JPG)
+![Test Results](testing/test_results_11.JPG)
+![Test Results](testing/test_results_12.JPG)
+![Test Results](testing/test_results_13.JPG)
+
 ## User Story Testing
 
 ### User Story:

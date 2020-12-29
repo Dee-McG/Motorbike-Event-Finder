@@ -302,12 +302,12 @@ MongoDB Object format examples:
 ### Design
 
 #### Colour Scheme
-The main background colour is ![#d2d2af](https://placehold.it/15/d2d2af/000000?text=+) for the header, footer
+The main background colour is a cream ![#d2d2af](readme_images/cream.png) for the header, footer
 and all button backgrounds. 
 
-The main website text is black ![#000000](https://placehold.it/15/000000/000000?text=+)
+The main website text is black ![#000000](readme_images/black.png)
 
-All custom heading text is ![#831717](https://placehold.it/15/831717/000000?text=+)
+All custom heading text is a deep shade of red ![#831717](readme_images/red.png)
 
 #### Typography
 The main heading on all pages and the expanded materialize card headings use the 'PT Serif' font while the 
