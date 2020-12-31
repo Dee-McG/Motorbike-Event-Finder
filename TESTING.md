@@ -124,6 +124,14 @@ Issue #5:
 
 This was resolved by parsing the dates into datetime objects and then sorting them.
 
+Issue #5:
+> Heading for user events on profile was always showing even when the user had no events. This was caused by not filtering
+the events before passing the events to the profile page. This ment the list contained all events but only displayed the 
+users events due to the conditional logic on the profile page. 
+
+This was resolved by doing a filter on the events before returning the events to the profile page. Redunant session user 
+checks were then removed from the profile.html page.
+
 ***
 ## Unit Testing
 
