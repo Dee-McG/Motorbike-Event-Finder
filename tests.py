@@ -142,4 +142,3 @@ class LoggedInTests(AppTestCase):
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Club Hosted Event' in data
-
