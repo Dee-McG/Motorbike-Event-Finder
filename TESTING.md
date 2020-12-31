@@ -123,3 +123,16 @@ Issue #5:
 > When sorting events by date (string) from MongoDB collection, they were sorting on the days instead of full dates.
 
 This was resolved by parsing the dates into datetime objects and then sorting them.
+
+***
+## Unit Testing
+
+Unit testing was done using python [unittest](https://docs.python.org/3/library/unittest.html).
+
+Testing covered: 
+
+* Routing redirects to ensure they navigated to the correct pages
+* Sign Up functionality
+* Login functionality
+* Create Event functionality
+* Edit Event functionality
