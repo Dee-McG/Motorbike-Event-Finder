@@ -124,6 +124,14 @@ Issue #5:
 
 This was resolved by parsing the dates into datetime objects and then sorting them.
 
+Issue #5:
+> Heading for user events on profile was always showing even when the user had no events. This was caused by not filtering
+the events before passing the events to the profile page. This ment the list contained all events but only displayed the 
+users events due to the conditional logic on the profile page. 
+
+This was resolved by doing a filter on the events before returning the events to the profile page. Redunant session user 
+checks were then removed from the profile.html page.
+
 ***
 ## Unit Testing
 
@@ -131,8 +139,32 @@ Unit testing was done using python [unittest](https://docs.python.org/3/library/
 
 Testing covered: 
 
-* Routing redirects to ensure they navigated to the correct pages
-* Sign Up functionality
-* Login functionality
-* Create Event functionality
-* Edit Event functionality
+* Routing to ensure they navigated to the correct pages.
+* Sign Up functionality.
+* Login functionality.
+* Create Event functionality.
+* Edit Event functionality.
+* Delete Event functionality.
+
+![Unit Tests](testing/unit_tests.JPG)<br>
+****
+
+## Validator Results
+
+#### HTML Results:
+![Home](testing/tc001_step2.JPG)<br>
+![Events]testing/tc001_step3.JPG()<br>
+![Contact](testing/tc001_step4.JPG)<br>
+![Signup](testing/tc001_step5.JPG)<br>
+![Signin](testing/tc001_step6.JPG)<br>
+![Create Event](testing/tc001_step7.JPG)
+
+#### CSS Results:
+![CSS](testing/tc002_step2.JPG)<br>
+
+#### JavaScript Results:
+![email.js](testing/tc003_step2.JPG)<br>
+![scripts.js](testing/tc003_step3.JPG)<br>
+
+#### Python Results:
+![app.py](testing/tc004_step2.JPG)<br>

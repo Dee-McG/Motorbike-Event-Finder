@@ -1,6 +1,7 @@
 import unittest
 import os
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 import app as app_module
 
@@ -19,45 +20,46 @@ app_module.mongo = mongo
 
 
 class AppTestCase(unittest.TestCase):
-    """Clean the DB"""
+    """Clean the DB before test"""
     def setUp(self):
         self.client = app.test_client()
         with app.app_context():
+            # Delete all users and events
             mongo.db.users.delete_many({})
             mongo.db.events.delete_many({})
 
 
 class AppTests(AppTestCase):
-    """Test Home page load"""
     def test_index(self):
+        """Test Home page load response and headers"""
         res = self.client.get('/')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Motorbike Event Finder' in data
 
     def test_event_page(self):
-        """Test Event Page load"""
+        """Test Event Page load response and headers"""
         res = self.client.get('/events')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Upcoming Events' in data
 
     def test_contact_page(self):
-        """Test Contact Page load"""
+        """Test Contact Page load response and headers"""
         res = self.client.get('/contact')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Contact Us' in data
 
     def test_signup_page(self):
-        """Test Sign Up Page load"""
+        """Test Sign Up Page load response and headers"""
         res = self.client.get('/signup')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Sign Up' in data
 
     def test_signin_page(self):
-        """Test Sign In Page load"""
+        """Test Sign In Page load response and headers"""
         res = self.client.get('/signup')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
@@ -101,7 +103,7 @@ class LoggedInTests(AppTestCase):
         assert 'Rally' in data
 
     def test_signin_functionality(self):
-        """Test Successful Sign in functionality"""
+        """Test Successful Sign in and profile redirect functionality"""
         res = self.client.post('/signin',
                                follow_redirects=True, data=dict(
                                    username='orange',
@@ -110,6 +112,14 @@ class LoggedInTests(AppTestCase):
         data = res.data.decode('utf-8')
         assert 'Profile' in data
         assert 'Username: orange' in data
+        assert res.status == '200 OK'
+
+    def test_create_event_load(self):
+        """Test Create Event page load"""
+        res = self.client.get('/create-event')
+        data = res.data.decode('utf-8')
+        assert res.status == '200 OK'
+        assert 'Create Event' in data
 
     def test_create_event(self):
         """Test event creation functionality"""
@@ -123,6 +133,7 @@ class LoggedInTests(AppTestCase):
                                ))
 
         data = res.data.decode('utf-8')
+        # Check user and rally displayed
         assert 'orange' in data
         assert 'Rally' in data
 
@@ -141,4 +152,20 @@ class LoggedInTests(AppTestCase):
 
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
+        # Check for updated event_type
         assert 'Club Hosted Event' in data
+
+    def test_delete_event(self):
+        """Test delete event functionality"""
+        # Search for id
+        # Only one object is in the DB added during test suite
+        event = mongo.db.events.find_one()
+        _id = event.get('_id')
+        assert ObjectId.is_valid(_id)
+        # Delete the event
+        response = self.client.get(f'/delete_event/{_id}')
+        # Check redirection
+        assert response.status == '302 FOUND'
+        event = mongo.db.events.find_one({'_id': ObjectId(_id)})
+        # Check event deleted
+        assert event is None

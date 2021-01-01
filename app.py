@@ -101,6 +101,10 @@ def profile(username):
 
     if session["user"]:
         events = list(mongo.db.events.find().sort("date"))
+        # Filters events that were created by the user
+        events = list(filter
+                      (lambda x: x['created_by'] == username['username'],
+                       events))
         return render_template("profile.html",
                                username=username, events=events)
 
