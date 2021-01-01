@@ -504,6 +504,11 @@ Click the settings tab and then click the Reveal Confid Vars button and add the 
 1. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
 
 ### Run Locally
+
+**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) file configuring IP, PORT, 
+MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. These details are private and not disclosed in this repository 
+for security purposes.**
+
 1. Navigate to the GitHub [Repository](https://github.com/Daisy-McG/Motorbike-Event-Finder).
 1. Click the Code drop down menu.
 1. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
@@ -542,8 +547,9 @@ a W3Schools tutorial.
 
 ### Acknowledgements
 
-I'd like to give special thanks to the the following people for their help with my project.
-* Slack user Seán for providing me information on how to implement 404 and 500 page routing with flask.
+I'd like to give special thanks to the the following people for their help with my project:
+* Slack user Seán for providing me information on how to implement 404 and 500 page routing with flask and helping me debug why 
+the Manage Events title was showing when the user had no events. Also for the help with my delete unit test.
 * Slack user Anthony for his help with my error/message Flash messages.
 * My mentor Spencer Baribell for his guidance throughout the project.
 

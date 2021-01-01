@@ -139,8 +139,32 @@ Unit testing was done using python [unittest](https://docs.python.org/3/library/
 
 Testing covered: 
 
-* Routing redirects to ensure they navigated to the correct pages
-* Sign Up functionality
-* Login functionality
-* Create Event functionality
-* Edit Event functionality
+* Routing to ensure they navigated to the correct pages.
+* Sign Up functionality.
+* Login functionality.
+* Create Event functionality.
+* Edit Event functionality.
+* Delete Event functionality.
+
+![Unit Tests](testing/unit_tests.JPG)<br>
+****
+
+## Validator Results
+
+#### HTML Results:
+![Home](testing/tc001_step2.JPG)<br>
+![Events]testing/tc001_step3.JPG()<br>
+![Contact](testing/tc001_step4.JPG)<br>
+![Signup](testing/tc001_step5.JPG)<br>
+![Signin](testing/tc001_step6.JPG)<br>
+![Create Event](testing/tc001_step7.JPG)
+
+#### CSS Results:
+![CSS](testing/tc002_step2.JPG)<br>
+
+#### JavaScript Results:
+![email.js](testing/tc003_step2.JPG)<br>
+![scripts.js](testing/tc003_step3.JPG)<br>
+
+#### Python Results:
+![app.py](testing/tc004_step2.JPG)<br>
