@@ -4,7 +4,7 @@ function sendMail(contactForm) {
     emailjs.send("gmail", "ms3", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.email.value,
-        "project_request": contactForm.comments.value
+        "comments": contactForm.comments.value
     })
     .then(
         function() {
