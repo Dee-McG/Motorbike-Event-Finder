@@ -230,8 +230,10 @@ def create_event():
 def edit_event(event_id):
     """
     Allows user to edit an event. If successful, flash message is displayed
-    to alert user.
+    to alert user and user is redirected to their profile.
     """
+    categories = mongo.db.categories.find().sort("category_name", 1)
+
     if request.method == "POST":
         submit = {
             "event_type": request.form.get("event_type"),
@@ -245,8 +247,12 @@ def edit_event(event_id):
         mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
         flash("Event Successfully Updated", 'message')
 
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        return redirect(url_for
+                        ("profile", username=username, categories=categories))
+
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit-event.html",
                            event=event, categories=categories)
 
