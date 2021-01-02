@@ -188,7 +188,7 @@ Acceptance Criteria:
 Implementation:
 
 An Events page will be implemented that is displayed to all users that is accessible to logged in or guests. 
-This page will display the next six motorbike events from today's date on materialize cards. In order to 
+This page will display the next six motorbike events from today's date on a materialize collapsible element. In order to 
 make use of space, these events will be collapsable and can be expanded to view details on click.
 
 A search box will be displayed on screen which will allow users to search for events based on Date, Event 
@@ -310,7 +310,7 @@ The main website text is black ![#000000](readme_images/black.png)
 All custom heading text is a deep shade of red ![#831717](readme_images/red.png)
 
 #### Typography
-The main heading on all pages and the expanded materialize card headings use the 'PT Serif' font while the 
+The main heading on all pages and in the expanded materialize collapsible element headings use the 'PT Serif' font while the 
 rest of the websites content uses the 'Play' font.
 
 #### Imagery
@@ -356,7 +356,7 @@ to account for any internal server errors.
 ### Features Left to Implement
 
 A feature to be included in the next release will allow users the ability to upload their own custom event posters. 
-These will be displayed in the materialize cards along with the event information.
+These will be displayed in the materialize collapsible elements along with the event information.
 
 Admin login will be implemented in the next release to allow admin users to delete any events that may be inappropriate.
 ****

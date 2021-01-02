@@ -95,6 +95,12 @@ Issue #4:
 
 FIX - This issue was resolved by removing the return field ["username"] and updating the profile code to search for correct values.
 
+Issue #5:
+> TC017 - Step 9: Wrong event was being deleted. No matter what event is deleted, the first one was being deleted.
+
+FIX - This issue was caused by the event modals all having the same ID. This was resolved by updating the modal IDs to contain the event ID to make them unique. 
+This was restested and is now working as expected.
+
 ***
 ## Issues and Resolutions to issues found during development testing
 Issue #1: 
