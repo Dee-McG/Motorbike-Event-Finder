@@ -101,6 +101,11 @@ Issue #5:
 FIX - This issue was caused by the event modals all having the same ID. This was resolved by updating the modal IDs to contain the event ID to make them unique. 
 This was restested and is now working as expected.
 
+Issue #6:
+> TC012 - Step 5: Location search is also bringing back results when date or event type are searched.
+
+FIX - This issue was resolved by updating the code in the search function to specify field values instead of a text field on the whole index.
+
 ***
 ## Issues and Resolutions to issues found during development testing
 Issue #1: 
@@ -130,7 +135,7 @@ Issue #5:
 
 This was resolved by parsing the dates into datetime objects and then sorting them.
 
-Issue #5:
+Issue #6:
 > Heading for user events on profile was always showing even when the user had no events. This was caused by not filtering
 the events before passing the events to the profile page. This ment the list contained all events but only displayed the 
 users events due to the conditional logic on the profile page. 
