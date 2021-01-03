@@ -317,7 +317,7 @@ rest of the websites content uses the 'Play' font.
 A background image will be used on all pages displaying a map of Ireland, this image was 
 taken from [mapswire](https://mapswire.com/countries/ireland/). 
 
-The website logo was created using online software from the website [free logo design](https://freelogodesign.org).
+The website logo was created using online software from the website [Canva](https://www.canva.com/).
 
 The home page image of the bride and motorbike burnouts is property of Debbie Harkin. - Permission was granted 
 to use the image.
@@ -406,8 +406,8 @@ Admin login will be implemented in the next release to allow admin users to dele
 	* Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and test different CSS styles.
 * [balsamiq Wireframes](https://balsamiq.com/wireframes/)
 	* This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
-* [freelogdesign](https://www.freelogodesign.org/)
-    * Free logo design was used in order to create the website logo.
+* [Canva](https://www.canva.com/)
+    * Canva design was used in order to create the website logo.
 * [Font Awesome](https://fontawesome.com/)
     * All the Icons displayed throughout the website are Font Awesome icons.
 * [Favicon](https://favicon.io/)
@@ -534,7 +534,7 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 
 Background image - Taken from [mapswire](https://mapswire.com/countries/ireland/). 
 
-Website Logo - Created with [free logo design](https://freelogodesign.org).
+Website Logo - Created with [Canva](https://www.canva.com/).
 
 ### Code
 
@@ -553,6 +553,7 @@ I'd like to give special thanks to the the following people for their help with 
 * Slack user Seán for providing me information on how to implement 404 and 500 page routing with flask and helping me debug why 
 the Manage Events title was showing when the user had no events. Also for the help with my delete unit test.
 * Slack user Anthony for his help with my error/message Flash messages.
+* Slack user Bim for his help with good UX Design practices and showing articles referencing these.
 * My mentor Spencer Baribell for his guidance throughout the project.
 
 ****

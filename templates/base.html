@@ -23,21 +23,19 @@
         <title>Motorbike Event Finder</title>
     </head>
     <body>
+        <!-- Banner / Logo -->
+        <div class="row" id="no-margin">
+            <div class="col s12 center-align banner-bg-color">
+                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo responsive-img" id="logo" alt="Site Logo"></a>
+            </div>
+        </div>
         <!-- Nav Start -->
         <nav class="nav-extended">
             <div class="nav-wrapper">
-
-                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo center" id="logo" alt="Site Logo"></a>
-
-                <ul class="left hide-on-med-and-down">
+                <ul class="hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('get_events') }}">Events</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                </ul>
-
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon"><i class="fas fa-bars"></i></a>
-
-                <ul class="right hide-on-med-and-down">
                     {% if session.user %}
                         <li><a href="{{ url_for('create_event') }}">Create Event</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -47,6 +45,11 @@
                         <li><a href="{{ url_for('signin') }}">Sign In</a></li>
                     {% endif %}
                 </ul>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon">
+                    <div class="valign-wrapper">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </a>
             </div>
         </nav>
         <!-- Nav End -->
