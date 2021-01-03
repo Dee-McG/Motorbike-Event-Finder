@@ -132,6 +132,26 @@ main {
     border: 1px solid black;
 }
 
+#search-header {
+    font-size: 2rem;
+    color: #831717;
+    font-family: 'PT Serif', sans-serif;
+    margin: 0;
+    letter-spacing: 1.3px;
+}
+
+#search-sub {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+    letter-spacing: 1.1px;
+}
+
+#search {
+    font-size: 2rem;
+    color: #831717;
+}
+
 /* Contact Page */
 .email-response {
     font-size: 1vw;

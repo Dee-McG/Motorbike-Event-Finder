@@ -163,29 +163,29 @@ def search():
     selection from events page and saves them to events list.
     Renders template for events.html.
     """
-    query = request.form.get("query")
+    location = request.form.get("location").capitalize()
     event_type = request.form.get("event_type")
     date = request.form.get("date")
     events = list()
 
     # Queries on multiple search fields
-    if query and date:
+    if location and date:
         events = list(mongo.db.events.find
-                      ({'$and': [{"$text": {"$search": query}},
+                      ({'$and': [{"location": location},
                                  {"date": date}]}))
-    elif query and event_type:
+    elif location and event_type:
         events = list(mongo.db.events.find
-                      ({'$and': [{"$text": {"$search": query}},
+                      ({'$and': [{"location": location},
                                  {"event_type": event_type}]}))
     elif event_type and date:
         events = list(mongo.db.events.find
-                      ({'$and': [{"$text": {"$search": event_type}},
+                      ({'$and': [{"location": location},
                                  {"date": date}]}))
     # Queries on single search fields
-    elif query:
-        events = list(mongo.db.events.find({"$text": {"$search": query}}))
+    elif location:
+        events = list(mongo.db.events.find({"location": location}))
     elif event_type:
-        events = list(mongo.db.events.find({"$text": {"$search": event_type}}))
+        events = list(mongo.db.events.find({"event_type": event_type}))
     elif date:
         events = list(mongo.db.events.find({"date": date}))
 
@@ -211,7 +211,7 @@ def create_event():
     if request.method == "POST":
         event = {
             "event_type": request.form.get("event_type"),
-            "location": request.form.get("location"),
+            "location": request.form.get("location").capitalize(),
             "date": request.form.get("date"),
             "description": request.form.get("description"),
             "organiser": request.form.get("organiser"),
@@ -237,7 +237,7 @@ def edit_event(event_id):
     if request.method == "POST":
         submit = {
             "event_type": request.form.get("event_type"),
-            "location": request.form.get("location"),
+            "location": request.form.get("location").capitalize(),
             "date": request.form.get("date"),
             "description": request.form.get("description"),
             "organiser": request.form.get("organiser"),
