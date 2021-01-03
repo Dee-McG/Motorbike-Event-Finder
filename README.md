@@ -328,6 +328,11 @@ The second home page image of the three biker meet is property of Connor Meehan.
 After meeting with the client, Gareth G half way through the project, some of the Design was changed as it did not 
 meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
 
+In the original wireframes the Logo was centered and nav items split to the left and right side. This design did 
+not look well on the page, it left too much white space, nav items were too spaced on extra large screens and upon 
+reading about UX Design standards or navigations, it did not really confirm to norms or user friendly design. The design 
+was then changed to have a banner with a large logo across the top of the page, with the navigation items sat underneath.
+
 Original design and wireframes had the text input used to search events as a dual box that could search by either 
 location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
 picker search field.<br>
@@ -543,6 +548,9 @@ to a specific section of a page using Flask templates was taken from here.
 
 [Stack overflow](https://stackoverflow.com/questions/5272433/html5-form-required-attribute-set-custom-validation-message) - The code used to 
 create custom error messages on invalid form inputs was copied and modified from this stack overflow post.
+
+[Stack overflow](https://stackoverflow.com/questions/38964113/how-can-i-create-a-navbar-with-center-aligned-links-using-materialize) - The CSS 
+used to center the nav bar was gotten from this stack overflow post. 
 
 [W3Schools](https://www.w3schools.com/tags/tag_figcaption.asp) - The figure and caption code on the home page images was done by following 
 a W3Schools tutorial.
