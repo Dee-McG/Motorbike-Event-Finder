@@ -10,7 +10,7 @@
                 <p>Username: {{ username.username }}</p>
                 <p>Name: 
                     {% if username.name  %}
-                        {{ username.name }} 
+                        {{ username.name|capitalize }} 
                     {% else %}
                         Not disclosed
                     {% endif %}
