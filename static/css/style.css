@@ -50,10 +50,6 @@ form .form-label {
     padding: 0;
 }
 
-#no-margin {
-    margin-bottom: 0;
-}
-
 /*  Navigation Styling  */
 
 nav ul {
@@ -84,6 +80,10 @@ nav {
 
 nav .brand-logo {
     min-height: 100%;
+}
+
+#no-margin-banner {
+    margin-bottom: 0;
 }
 
 /* Base Template */
@@ -221,6 +221,10 @@ a:link {
 
 .footer-copyright {
     font-size: 10px;
+}
+
+#no-margin-footer {
+    margin-bottom: 0;
 }
 
 /* Media Queries */
