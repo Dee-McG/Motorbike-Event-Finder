@@ -330,7 +330,9 @@ meet expectations. The colour scheme for the Website and fonts were changed as p
 
 Original design and wireframes had the text input used to search events as a dual box that could search by either 
 location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
-picker search field.
+picker search field.<br>
+Search fields were also changed to be single column fields. The reasoning for this was 
+[article](https://cxl.com/blog/form-design-best-practices/) on form best practices.
 
 Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. 
 This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to 

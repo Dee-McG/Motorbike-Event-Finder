@@ -7,13 +7,19 @@
 
             <!-- Search Form -->
             <div class="row card-panel grey lighten-5">
+                <div class="col s12 center-align">
+                    <p id="search-header">
+                        <i class="fas fa-search prefix black-text text-darken-2" id="search"></i>
+                        Looking for an Event?
+                    </p>
+                    <p id="search-sub">You can search by Event Type, Location or Date</p>
+                </div>
+
                 <form action="{{ url_for('search') }}" method="post" class="col s12">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <div class="row">
-                        
                         <!-- Event type drop down -->
-                        <div class="input-field col s12 m6">
-                            <i class="fas fa-search prefix black-text text-darken-2"></i>
+                        <div class="input-field col s12 m6 offset-m3">
                             <select id="event_type" name="event_type" class="validate">
                                 <option value="" disabled selected>Choose Category</option>
                                 {% for category in categories %}
@@ -22,22 +28,24 @@
                             </select>
                             <label class="form-label">Event Type</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <!-- Text search box -->
-                        <div class="input-field col s12 m6">
-                            <input type="text" name="query" id="query" class="validate" placeholder="Location">
-                            <label for="query" class="form-label">Search</label>
+                        <div class="input-field col s12 m6 offset-m3">
+                            <input type="text" name="location" id="location" class="validate" placeholder="Kilkenny">
+                            <label for="location" class="form-label">Location</label>
                         </div>
                     </div>
-
                     <div class="row">
                         <!-- Date Picker -->
-                        <div class="input-field col s8 m6">
-                            <i class="fas fa-calendar-alt prefix text-darken-4"></i>
-                            <input id="date" name="date" type="text" class="datepicker validate">
+                        <div class="input-field col s12 m6 offset-m3">
+                            <input id="date" name="date" type="text" placeholder="31 December 2020" class="datepicker validate">
                             <label for="date" class="form-label">Date</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <!-- Search Button -->
-                        <div class="col s4 m4">
+                        <div class="col s12 center-align">
                             <button type="submit" class="button-bg-color black-text btn text-shadow" id="search-btn">
                                 Search
                             </button>
