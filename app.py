@@ -44,13 +44,13 @@ def signup():
             flash("This user name already exists.", 'error')
             return redirect(url_for("signup"))
 
-        newUser = {
+        new_user = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "name": request.form.get("name").lower()
         }
         # Insert new user into users collection
-        mongo.db.users.insert_one(newUser)
+        mongo.db.users.insert_one(new_user)
 
         session["user"] = request.form.get("username").lower()
         # Display flash success message on screen

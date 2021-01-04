@@ -324,7 +324,7 @@ to use the image.
 
 The second home page image of the three biker meet is property of Connor Meehan. - Permission to use this was given.
 
-#### Differences to Design
+## Differences to Design
 After meeting with the client, Gareth G half way through the project, some of the Design was changed as it did not 
 meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
 
@@ -336,7 +336,7 @@ was then changed to have a banner with a large logo across the top of the page, 
 Original design and wireframes had the text input used to search events as a dual box that could search by either 
 location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
 picker search field.<br>
-Search fields were also changed to be single column fields. The reasoning for this was 
+Search fields were also changed to be single column fields. The reasoning for this was reading this 
 [article](https://cxl.com/blog/form-design-best-practices/) on form best practices.
 
 Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. 
@@ -522,6 +522,9 @@ for security purposes.**
 1. Open your developement editor of choice and open a terminal window in a directory of your choice.
 1. Use the 'git clone' command in terminal followed by the copied git URL.
 1. A clone of the project will be created locally on your machine.
+
+Once the project has been loaded into an IDE of choice, run the following command in the shell to install all the required packages:
+> pip install -r requirements.txt
 
 ### Fork Project 
 
