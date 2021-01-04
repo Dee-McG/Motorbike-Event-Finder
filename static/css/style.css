@@ -188,7 +188,7 @@ main {
 
 /* Contact Page */
 .email-response {
-    font-size: 1vw;
+    font-size: 1rem;
     font-weight: bolder;
     margin-bottom: 1rem;
 }
@@ -293,5 +293,14 @@ a:link {
         color: #831717;
         text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
         text-align: center;
+    }
+}
+
+/* Media Query to make email confirmation message larger on bigger screen sizes */
+@media only screen and (min-width: 500px) {
+    .email-response {
+        font-size: 1rem;
+        font-weight: bolder;
+        margin-bottom: 1rem;
     }
 }

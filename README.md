@@ -558,6 +558,8 @@ used to center the nav bar was gotten from this stack overflow post.
 [W3Schools](https://www.w3schools.com/tags/tag_figcaption.asp) - The figure and caption code on the home page images was done by following 
 a W3Schools tutorial.
 
+JavaScript Validation function in scripts.js was code from course material for Task Manager App on the LMS. 
+
 ### Acknowledgements
 
 I'd like to give special thanks to the the following people for their help with my project:
