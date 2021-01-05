@@ -20,7 +20,7 @@ app_module.mongo = mongo
 
 
 class AppTestCase(unittest.TestCase):
-    """Clean the DB before test"""
+    """Clean the database before test"""
     def setUp(self):
         self.client = app.test_client()
         with app.app_context():
@@ -66,7 +66,7 @@ class AppTests(AppTestCase):
         assert 'Sign Up' in data
 
     def test_signup_functionality(self):
-        """Test signup"""
+        """Test signup functionality"""
         res = self.client.post('/signup', data=dict(
             username='orange',
             password='123Orange',
@@ -77,7 +77,7 @@ class AppTests(AppTestCase):
 
 
 class LoggedInTests(AppTestCase):
-    """Separate class to clean DB with no cross referencing"""
+    """Separate class to clean database with no cross referencing"""
     def setUp(self):
         """
         Clean the DB, add new user and event and check user and new event
@@ -156,16 +156,14 @@ class LoggedInTests(AppTestCase):
         assert 'Club Hosted Event' in data
 
     def test_delete_event(self):
-        """Test delete event functionality"""
-        # Search for id
-        # Only one object is in the DB added during test suite
+        """Test delete event functionality redirect and ensure
+        object is deleted from the database"""
         event = mongo.db.events.find_one()
         _id = event.get('_id')
         assert ObjectId.is_valid(_id)
-        # Delete the event
+
         response = self.client.get(f'/delete_event/{_id}')
-        # Check redirection
         assert response.status == '302 FOUND'
+
         event = mongo.db.events.find_one({'_id': ObjectId(_id)})
-        # Check event deleted
         assert event is None

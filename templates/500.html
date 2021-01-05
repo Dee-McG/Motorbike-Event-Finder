@@ -19,19 +19,17 @@
         <title>Motorbike Event Finder</title>
     </head>
     <body>
-        <!-- Nav Start -->
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-
-                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo left" id="logo" alt="Site Logo"></a>
-                <div class="center-align error-heading">Motorbike Event Finder</div>
+        <!-- Banner Start -->
+        <div class="row" id="no-margin-banner">
+            <div class="col s12 center-align banner-bg-color">
+                <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo responsive-img" id="logo" alt="Site Logo"></a>
             </div>
-        </nav>
-        <!-- Nav End -->
+        </div>
+        <!-- Banner End -->
         
         <!-- Main Content -->
         <main class="center-align">
-           <p class="landing-sub">Internal Server Error</p>
+           <p class="landing-sub">ERROR 500 - Internal Server Error</p>
            <p>Whoops, something has gone wrong!</p>
            <p>To return to the home page, please click <a href="{{ url_for('home') }}">here</a></p>
         </main>
@@ -39,7 +37,7 @@
         <!-- Start Footer -->
         <footer>
             <!-- Copyright info -->
-            <div class="col s12 center-align">
+            <div class="col s12 center-align" id="no-margin-footer">
                 <p class="footer-copyright">
                     Copyright &copy; 2020 by Daisy McGirr
                 </p>

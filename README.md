@@ -193,7 +193,7 @@ This page will display the next six motorbike events from today's date on a mate
 make use of space, these events will be collapsable and can be expanded to view details on click.
 
 A search box will be displayed on screen which will allow users to search for events based on Date, Event 
-Type or Location. This will return a filtered, full list of future events for the current search criteria. 
+Type or Location. This will return a filtered, full list events for the current search criteria. 
 This will be implemented by using a database index that will be created on the MongoDB collection events.
 
 User Story:
@@ -235,41 +235,39 @@ the main website without needing to use the browser navigation buttons.
 
 ### **The Skeleton Plane**
 #### Wireframes
-[Home](readme_images/wireframes/home.pdf)
 
-![Home](readme_images/wireframes/home.JPG)
+**Final Wireframes**
 
-[404](readme_images/wireframes/404.pdf)
+Home:<br>
+![Home](readme_images/wireframes/home.JPG)<br>
+404:<br>
+![404](readme_images/wireframes/404.JPG)<br>
+Contact:<br>
+![Contact](readme_images/wireframes/contact.JPG)<br>
+Create Event:<br>
+![Create Event](readme_images/wireframes/create_event.JPG)<br>
+Edit Event:<br>
+![Edit Event](readme_images/wireframes/edit_event.JPG)<br>
+Events:<br>
+![Events](readme_images/wireframes/events.JPG)<br>
+Profile<br>
+![Profile](readme_images/wireframes/profile.JPG)<br>
+Sign In:<br>
+![Sign In](readme_images/wireframes/signin.JPG)<br>
+Sign Up<br>
+![Sign Up](readme_images/wireframes/signup.JPG)<br>
 
-![404](readme_images/wireframes/404.JPG)
+**Original Design Wireframes**
+* [Home](readme_images/wireframes/original/home.pdf)
+* [404](readme_images/wireframes/original/404.pdf)
+* [Contact](readme_images/wireframes/original/contact.pdf)
+* [Create Event](readme_images/wireframes/original/create_event.pdf)
+* [Edit Event](readme_images/wireframes/original/edit_event.pdf)
+* [Events](readme_images/wireframes/original/events.pdf)
+* [Profile](readme_images/wireframes/original/profile.pdf)
+* [Sign In](readme_images/wireframes/original/signin.pdf)
+* [Sign Up](readme_images/wireframes/original/signup.pdf)
 
-[Contact](readme_images/wireframes/contact.pdf)
-
-![Contact](readme_images/wireframes/contact.JPG)
-
-[Create Event](readme_images/wireframes/create_event.pdf)
-
-![Create Event](readme_images/wireframes/create_event.JPG)
-
-[Edit Event](readme_images/wireframes/edit_event.pdf)
-
-![Edit Event](readme_images/wireframes/edit_event.JPG)
-
-[Events](readme_images/wireframes/events.pdf)
-
-![Events](readme_images/wireframes/events.JPG)
-
-[Profile](readme_images/wireframes/profile.pdf)
-
-![Profile](readme_images/wireframes/profile.JPG)
-
-[Sign In](readme_images/wireframes/signin.pdf)
-
-![Sign In](readme_images/wireframes/signin.JPG)
-
-[Sign Up](readme_images/wireframes/signup.pdf)
-
-![Sign Up](readme_images/wireframes/signup.JPG)
 
 #### Database Design
 MongoDB Object format examples:
@@ -341,11 +339,14 @@ not look well on the page, it left too much white space, nav items were too spac
 reading about UX Design standards or navigations, it did not really confirm to norms or user friendly design. The design 
 was then changed to have a banner with a large logo across the top of the page, with the navigation items sat underneath.
 
-Original design and wireframes had the text input used to search events as a dual box that could search by either 
-location or date. This proved difficult to implement and was agreed upon with the client to add an additional date 
+Original design and wireframes had the drop down input used to search events as a dual box that could search by either 
+location or event_type. This proved difficult to implement and was agreed upon with the client to add an additional date 
 picker search field.<br>
 Search fields were also changed to be single column fields. The reasoning for this was reading this 
 [article](https://cxl.com/blog/form-design-best-practices/) on form best practices.
+
+Changes in design from the original wireframes can be found in the Skeleton Wireframes section as both final and original 
+wireframes are linked.
 
 Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. 
 This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to 
