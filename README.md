@@ -15,6 +15,7 @@ Motorbike Events. The live Website can be found [here](https://motorbike-event-f
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframes)
         * [Database Design](#Database-Design)
+        * [Security](#Security)
     * [The Surface Plane](#The-Surface-Plane)
         * [Design](#Design)
             * [Colour Scheme](#Colour-Scheme)
@@ -298,12 +299,19 @@ MongoDB Object format examples:
 &nbsp;&nbsp;&nbsp;&nbsp;name : "Jane Doe",<br>
 }
 
+#### Security
+
+Database connection details are set up in an [env.py](https://pypi.org/project/env.py/) for development, for 
+security reasons this is not uploaded to GitHub so that database and connection details are not visible to 
+users. In production these are stored in Heroku. 
+
+
 ### **The Surface Plane**
 ### Design
 
 #### Colour Scheme
 The main background colour is a cream ![#d2d2af](readme_images/cream.png) for the header, footer
-and all button backgrounds. 
+and form button backgrounds. 
 
 The main website text is black ![#000000](readme_images/black.png)
 
@@ -497,7 +505,7 @@ The following commands were used for version control throughout the project:
 
 **Set environment variables:**
 
-Click the settings tab and then click the Reveal Confid Vars button and add the following:
+Click the settings tab and then click the Reveal Config Vars button and add the following:
 
 1. key: IP, value: 0.0.0.0
 2. key: PORT, value: 5000
