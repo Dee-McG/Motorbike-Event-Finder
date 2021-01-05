@@ -121,9 +121,13 @@ main {
     font-weight: bolder;
 }
 
-.anchor-links {
+a.anchor-links {
     color: #ff0606;
     font-size: 1rem
+}
+
+a.anchor-links:hover {
+    color: #e26060;
 }
 
 .small-text {
@@ -217,10 +221,6 @@ footer {
     background-color: #d2d2af;
 }
 
-a:link {
-  color: black;
-}
-
 .footer-title {
     font-size: 1.5rem;
     color: #5b4205;
@@ -229,6 +229,11 @@ a:link {
 
 .footer-content {
     font-size: 1rem;
+}
+
+.footer-content a:hover {
+    font-size: 1.5rem;
+    color: green;
 }
 
 .footer-copyright {
