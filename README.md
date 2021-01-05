@@ -236,7 +236,8 @@ the main website without needing to use the browser navigation buttons.
 ### **The Skeleton Plane**
 #### Wireframes
 
-## Final Wireframes
+**Final Wireframes**
+
 Home:<br>
 ![Home](readme_images/wireframes/home.JPG)<br>
 404:<br>
@@ -256,7 +257,7 @@ Sign In:<br>
 Sign Up<br>
 ![Sign Up](readme_images/wireframes/signup.JPG)<br>
 
-## Original Design Wireframes
+**Original Design Wireframes**
 * [Home](readme_images/wireframes/original/home.pdf)
 * [404](readme_images/wireframes/original/404.pdf)
 * [Contact](readme_images/wireframes/original/contact.pdf)
